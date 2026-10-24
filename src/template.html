@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#f6f5f0">
+  <meta name="description" content="{{description}}">
+  <meta property="og:title" content="{{pageTitle}}">
+  <meta property="og:description" content="{{socialDescription}}">
+  <meta property="og:type" content="website">
+  <title>{{pageTitle}}</title>
+  <link rel="icon" type="image/svg+xml" href="{{favicon}}">
+  <style>
+{{styles}}
+</style>
+</head>
+<body>
+  <a class="skip" href="#main" {{attrs:skipToContent}}>{{text:skipToContent}}</a>
+  <header><div class="wrap header-inner">
+    <a class="brand" href="#" aria-label="{{siteName}} home">
+      {{logo}}
+      <span class="brand-text">{{brandName}}<small>{{brandSubtitle}}</small></span>
+    </a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="navigation" {{attrs:menu}}>{{text:menu}}</button>
+    <nav id="navigation" class="nav" aria-label="Main navigation">
+      <a href="#research" {{attrs:topicsLabel}}>{{text:topicsLabel}}</a><a href="#open-science" {{attrs:openSourceLabel}}>{{text:openSourceLabel}}</a><a href="#publications" {{attrs:researchLabel}}>{{text:researchLabel}}</a><a href="#people" {{attrs:peopleLabel}}>{{text:peopleLabel}}</a><a href="#contact" {{attrs:joinLabel}}>{{text:joinLabel}}</a>
+      <button class="lang-btn" id="language" type="button" aria-label="切换为中文">中文</button>
+    </nav>
+  </div></header>
+  <main id="main">
+    <section class="hero wrap" aria-labelledby="hero-title">
+      <div class="hero-top eyebrow"><span class="dot"></span><span {{attrs:heroEyebrow}}>{{text:heroEyebrow}}</span></div>
+      <div class="hero-grid">
+        <div><h1 id="hero-title" {{attrs:heroTitle}}>{{text:heroTitle}}</h1>
+          <ul class="hero-intro">
+{{heroBullets}}
+          </ul>
+          <div class="hero-links"><a class="button-primary" href="#research"><span {{attrs:heroExplore}}>{{text:heroExplore}}</span><span aria-hidden="true">↓</span></a><a class="text-link" href="#publications"><span {{attrs:heroLatestPaper}}>{{text:heroLatestPaper}}</span> <span class="arrow">↗</span></a></div>
+        </div>
+        <figure class="field" style="margin:0" aria-label="Interactive illustration of joint refinement">
+          <div class="field-top"><span {{attrs:figureLabel}}>{{text:figureLabel}}</span><span>z(t)</span></div>
+          <div class="field-stage"><svg class="field-svg" id="field-svg" viewBox="0 0 500 320" role="img" aria-label="Four continuous token trajectories become more ordered as refinement progresses"><defs><pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M 20 0 L 0 0 0 20" fill="none" stroke="#b3bfb4" stroke-width=".5" opacity=".38"/></pattern><linearGradient id="stream" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#809579" stop-opacity=".3"/><stop offset="1" stop-color="#2642d5" stop-opacity=".7"/></linearGradient></defs><rect x="20" y="10" width="460" height="280" fill="url(#grid)"/><g id="streams" fill="none" stroke="url(#stream)"></g><g id="nodes"></g><text x="25" y="311" class="field-label">NOISY STATES</text><text x="475" y="311" text-anchor="end" class="field-label">JOINT REFINEMENT</text></svg></div>
+          <div class="field-output" aria-hidden="true"><span>Think</span><span>continuously.</span><span>Generate</span><span>together.</span></div>
+          <div class="field-controls"><button class="play" id="play" type="button" aria-label="Play refinement animation">▶</button><label for="refinement" class="eyebrow" style="font-size:9px">t</label><input id="refinement" type="range" min="0" max="100" value="65" aria-label="Refinement progress"><output class="progress-label" id="progress" for="refinement">0.65</output></div>
+          <figcaption class="field-caption" {{attrs:figureCaption}}>{{text:figureCaption}}</figcaption>
+        </figure>
+      </div>
+      <div class="hero-bottom"><div class="topics"><span {{attrs:heroTopicLanguage}}>{{text:heroTopicLanguage}}</span><span aria-hidden="true">/</span><span {{attrs:heroTopicInference}}>{{text:heroTopicInference}}</span><span aria-hidden="true">/</span><span {{attrs:heroTopicScience}}>{{text:heroTopicScience}}</span></div><span class="small-note" {{attrs:publicGood}}>{{text:publicGood}}</span></div>
+    </section>
+    <section class="section wrap" id="research" aria-labelledby="research-title">
+      <div class="section-heading"><div><p class="eyebrow"><span class="section-num">01</span><span {{attrs:topicsLabel}}>{{text:topicsLabel}}</span></p><h2 id="research-title" {{attrs:topicsTitle}}>{{text:topicsTitle}}</h2></div><p {{attrs:topicsIntro}}>{{text:topicsIntro}}</p></div>
+      <div class="research-list">
+{{topics}}
+      </div><p class="question" {{attrs:topicsQuestion}}>{{text:topicsQuestion}}</p>
+    </section>
+    <section class="open-section" id="open-science" aria-labelledby="open-title"><div class="wrap">
+      <div class="open-grid"><div><p class="eyebrow">02 / <span {{attrs:openSourceLabel}}>{{text:openSourceLabel}}</span></p><h2 id="open-title" {{attrs:openSourceTitle}}>{{text:openSourceTitle}}</h2></div><p class="open-intro" {{attrs:openSourceIntro}}>{{text:openSourceIntro}}</p></div>
+      <div class="agenda">{{openSourceGoals}}</div>
+    </div></section>
+    <section class="section wrap" id="publications" aria-labelledby="publications-title">
+      <div class="section-heading"><div><p class="eyebrow"><span class="section-num">03</span><span {{attrs:researchLabel}}>{{text:researchLabel}}</span></p><h2 id="publications-title" {{attrs:researchTitle}}>{{text:researchTitle}}</h2></div><p {{attrs:researchIntro}}>{{text:researchIntro}}</p></div>
+      <div class="papers">{{papers}}</div>
+      {{news}}
+    </section>
+    <section class="section wrap" id="people" aria-labelledby="people-title">
+      <div class="section-heading"><div><p class="eyebrow"><span class="section-num">04</span><span {{attrs:peopleLabel}}>{{text:peopleLabel}}</span></p><h2 id="people-title" {{attrs:peopleTitle}}>{{text:peopleTitle}}</h2></div></div>
+      <div class="people">
+{{people}}
+      </div><p class="affiliation-note" {{attrs:affiliationNote}}>{{text:affiliationNote}}</p>
+
+    </section>
+    <section class="contact wrap" id="contact" aria-labelledby="contact-title"><div class="contact-grid"><div><p class="eyebrow"><span class="section-num">05</span><span {{attrs:joinLabel}}>{{text:joinLabel}}</span></p><h2 id="contact-title" {{attrs:joinTitle}}>{{text:joinTitle}}</h2><p {{attrs:joinIntro}}>{{text:joinIntro}}</p></div><div class="contact-right"><p class="eyebrow" {{attrs:contactHeading}}>{{text:contactHeading}}</p><div class="contact-methods"><div><button class="contact-reveal" type="button" aria-expanded="false" aria-controls="footer-email"><span class="color-word" {{attrs:emailLabel}}>{{text:emailLabel}}</span></button><span class="contact-value" id="footer-email" hidden>: <a href="mailto:{{email}}">{{email}}</a></span></div><div><button class="contact-reveal" type="button" aria-expanded="false" aria-controls="footer-wechat"><span class="color-word" {{attrs:wechatLabel}}>{{text:wechatLabel}}</span></button><span class="contact-value" id="footer-wechat" hidden>: {{wechat}}</span></div></div></div></div><div class="participation-paths">{{joinPaths}}</div></section>
+  </main>
+  <footer><div class="wrap footer-inner"><span>© {{copyrightYear}} {{siteName}}</span><span {{attrs:footerMission}}>{{text:footerMission}}</span><span class="footer-tag">THINK CONTINUOUSLY. GENERATE TOGETHER.</span></div></footer>
+  <script>
+{{client}}
+</script>
+</body>
+</html>

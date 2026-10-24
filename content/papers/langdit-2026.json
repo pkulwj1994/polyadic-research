@@ -1,0 +1,84 @@
+{
+  "id": "langdit-2026",
+  "published": true,
+  "date": "2026-10-15",
+  "title": "Designing Transformers for Continuous Diffusion Language Models",
+  "authors": [
+    "Weijian Luo",
+    "Yujian Chen",
+    "Hao Jiang",
+    "Guang Cheng",
+    "Tianyang Hu"
+  ],
+  "status": {
+    "en": "PREPRINT",
+    "zh": "预印本"
+  },
+  "summary": {
+    "en": "A systematic study of normalization, noise conditioning, gradient routing, and self-conditioning. LangDiT improves continuous language generation within LangFlow and transfers compatible components to a Plaid-style formulation.",
+    "zh": "系统研究归一化、噪声条件、梯度路由与自条件机制。LangDiT 在 LangFlow 中改善连续语言生成，并将兼容的组件迁移到 Plaid 类模型。"
+  },
+  "links": [
+    {
+      "label": {
+        "en": "Read paper",
+        "zh": "阅读论文"
+      },
+      "url": "https://arxiv.org/abs/2610.22330"
+    },
+    {
+      "label": {
+        "en": "PDF",
+        "zh": "PDF"
+      },
+      "url": "https://arxiv.org/pdf/2610.22330"
+    }
+  ],
+  "bibtex": "@misc{luo2026designing,\n  title={Designing Transformers for Continuous Diffusion Language Models},\n  author={Weijian Luo and Yujian Chen and Hao Jiang and Guang Cheng and Tianyang Hu},\n  year={2026},\n  eprint={2610.22330},\n  archivePrefix={arXiv},\n  primaryClass={cs.AI},\n  url={https://arxiv.org/abs/2610.22330}\n}",
+  "cover": {
+    "kind": "image",
+    "image": "assets/papers/langdit-preview.gif",
+    "poster": "assets/papers/langdit-poster.png",
+    "alt": "Animated conceptual overview of LangDiT: continuous states, transformer computation and joint token predictions."
+  },
+  "results": {
+    "summary": {
+      "en": "Selected reported results & evaluation context",
+      "zh": "展开论文结果与评测条件"
+    },
+    "caption": {
+      "en": "OpenWebText · 1,024-token unconditional generation · GenPPL ↓",
+      "zh": "OpenWebText · 1,024 token 无条件生成 · GenPPL 越低越好"
+    },
+    "columns": [
+      {
+        "en": "Model formulation",
+        "zh": "模型形式"
+      },
+      {
+        "en": "128 steps",
+        "zh": "128 steps"
+      },
+      {
+        "en": "1,024 steps",
+        "zh": "1,024 steps"
+      }
+    ],
+    "rows": [
+      [
+        "LangFlow + LangDiT",
+        "44.72",
+        "21.72"
+      ],
+      [
+        "Plaid-style + LangDiT",
+        "27.51",
+        "11.33"
+      ]
+    ],
+    "note": {
+      "en": "Extended-training checkpoints: LangFlow 660k; Plaid-style 520k updates. Plaid-style sampling uses one additional final denoiser call. These scores use different training budgets and do not establish an isolated architecture gain or wall-clock speedup. See the paper for entropy, controls, and full settings.",
+      "zh": "延长训练的检查点：LangFlow 660k、Plaid 类模型 520k 更新。Plaid 类采样还包含一次最终去噪调用。不同训练预算下的分数不能单独证明架构收益或实际运行加速；熵、对照实验和完整配置见论文。"
+    }
+  }
+}

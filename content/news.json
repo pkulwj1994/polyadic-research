@@ -1,0 +1,11 @@
+[
+  {
+    "id": "langdit-release",
+    "date": "2026-10-15",
+    "text": {
+      "en": "LangDiT preprint released — a study of Transformer design for continuous diffusion language models.",
+      "zh": "LangDiT 预印本发布：系统探索连续扩散语言模型的 Transformer 架构设计。"
+    },
+    "visible": true
+  }
+]

@@ -1,0 +1,16 @@
+{
+  "name": "polyadic-research-group",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Content-driven bilingual academic website for Polyadic Research Group",
+  "engines": { "node": ">=22" },
+  "scripts": {
+    "dev": "node scripts/dev.mjs",
+    "build": "node scripts/build.mjs",
+    "check": "node scripts/check.mjs",
+    "test": "node --test",
+    "add:paper": "node scripts/add.mjs paper",
+    "add:person": "node scripts/add.mjs person"
+  }
+}

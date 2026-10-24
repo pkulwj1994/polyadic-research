@@ -1,0 +1,6 @@
+{
+  "kind": "image",
+  "image": "assets/papers/langdit-preview.gif",
+  "poster": "assets/papers/langdit-poster.png",
+  "alt": "Animated conceptual overview of LangDiT: continuous states, transformer computation and joint token predictions."
+}

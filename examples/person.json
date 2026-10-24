@@ -1,0 +1,10 @@
+{
+  "id": "first-last",
+  "name": "First Last",
+  "initials": "FL",
+  "role": { "en": "Contributor", "zh": "贡献者" },
+  "bio": { "en": "Affiliation and a short biography.", "zh": "单位与简要介绍。" },
+  "website": "",
+  "showProfileLink": false,
+  "visible": false
+}

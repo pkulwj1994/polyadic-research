@@ -1,0 +1,290 @@
+{
+  "heroBullets": [
+    {
+      "text": {
+        "en": "We are a <span class='color-word'>non-profit</span> academic group studying intelligence that <span class='color-word color-word--teal'>thinks continuously</span> and <span class='color-word color-word--teal'>generates together</span>.",
+        "zh": "我们是一个<span class='color-word'>非营利</span>学术团队，探索<span class='color-word color-word--teal'>持续思考</span>、<span class='color-word color-word--teal'>协同生成</span>的智能。",
+        "html": true
+      }
+    },
+    {
+      "text": {
+        "en": "We build open foundations for <span class='color-word'>continuous diffusion language models</span> and <span class='color-word'>parallel reasoning</span>.",
+        "zh": "我们为<span class='color-word'>连续扩散语言模型</span>与<span class='color-word'>并行推理</span>构建开放基础。",
+        "html": true
+      }
+    },
+    {
+      "text": {
+        "en": "Supported by <span class='color-word color-word--teal'>CUHK-Shenzhen and UCLA</span>, with members from <span class='color-word'>PKU, CUHK, HKUST, Oxford, UCLA</span>, and beyond.",
+        "zh": "项目获得<span class='color-word color-word--teal'>香港中文大学（深圳）和 UCLA</span>支持，成员来自 <span class='color-word'>PKU、CUHK、HKUST、Oxford、UCLA</span> 等机构。",
+        "html": true
+      }
+    },
+    {
+      "text": {
+        "en": "<span class='color-word'>Young researchers</span> are warmly welcome to shape <span class='color-word color-word--teal'>parallel intelligence</span> with us. Connect via ",
+        "zh": "欢迎<span class='color-word'>青年研究者</span>与我们携手探索<span class='color-word color-word--teal'>并行智能</span>的未来。联系：",
+        "html": true
+      },
+      "showContacts": true
+    },
+    {
+      "text": {
+        "en": "We welcome <span class='color-word color-word--warm'>donations</span> from institutes and individuals to help Polyadic Intelligence advance the frontier of <span class='color-word color-word--warm'>open parallel intelligence</span>.",
+        "zh": "我们欢迎机构与个人<span class='color-word color-word--warm'>捐赠支持</span> Polyadic Intelligence，共同推进<span class='color-word color-word--warm'>开放并行智能</span>的前沿研究。",
+        "html": true
+      }
+    }
+  ],
+  "topics": [
+    {
+      "title": {
+        "en": "Continuous language models",
+        "zh": "连续语言模型"
+      },
+      "description": {
+        "en": "Build and understand models that generate language through continuous-state refinement. Study token representations, denoising architectures, noise conditioning, and scaling behavior.",
+        "zh": "研究通过连续状态迭代生成语言的模型，探索 token 表征、去噪架构、噪声条件与规模化规律。"
+      },
+      "tagLines": [
+        "MODELS",
+        "+ THEORY"
+      ]
+    },
+    {
+      "title": {
+        "en": "Parallel inference & reasoning",
+        "zh": "并行推理与思考"
+      },
+      "description": {
+        "en": "Refine multiple token positions together, and investigate how sampling and verification affect generation. Evaluate quality, diversity, and end-to-end latency under explicit compute budgets.",
+        "zh": "共同更新多个 token 位置，研究采样与验证如何影响生成，在明确的计算预算下评估质量、多样性与端到端延迟。"
+      },
+      "tagLines": [
+        "SAMPLING",
+        "+ EVALUATION"
+      ]
+    },
+    {
+      "title": {
+        "en": "Foundations & scaling",
+        "zh": "基础问题与规模化"
+      },
+      "description": {
+        "en": "Study how data, compute, and model design shape learning and generalization, and how continuous language models can support reasoning and action.",
+        "zh": "研究数据、算力与模型设计如何影响学习和泛化，以及连续语言模型如何支持推理与行动。"
+      },
+      "tagLines": [
+        "FOUNDATIONS",
+        "+ SCALING"
+      ]
+    }
+  ],
+  "openSourceGoals": [
+    {
+      "title": {
+        "en": "Curate leading models",
+        "zh": "汇集优秀模型"
+      },
+      "description": {
+        "en": "Collect and organize the best open-source continuous diffusion language models, with checkpoints, papers, and clear documentation.",
+        "zh": "收集整理优秀的开源连续扩散语言模型，汇集模型权重、论文与清晰文档。"
+      }
+    },
+    {
+      "title": {
+        "en": "Make models easy to use",
+        "zh": "让模型轻松可用"
+      },
+      "description": {
+        "en": "Offer a unified API, one-click demos, and ready-to-run examples to load models, generate text, and compare methods.",
+        "zh": "提供统一接口、一键体验与开箱即用的示例，方便加载模型、生成文本和比较方法。"
+      }
+    },
+    {
+      "title": {
+        "en": "Connect the community",
+        "zh": "促进学术交流"
+      },
+      "description": {
+        "en": "Share reproducible experiments, compare results, and exchange ideas through community contributions and academic collaboration.",
+        "zh": "共享可复现实验、比较研究结果，欢迎社区贡献与学术合作，促进想法交流。"
+      }
+    }
+  ],
+  "joinPaths": [
+    {
+      "title": {
+        "en": "Research collaboration",
+        "zh": "学术合作"
+      },
+      "description": {
+        "en": "Discuss open questions, share results, and build research projects together.",
+        "zh": "讨论开放问题、交流研究结果，共同开展学术项目。"
+      }
+    },
+    {
+      "title": {
+        "en": "Open-source contributions",
+        "zh": "开源贡献"
+      },
+      "description": {
+        "en": "Contribute model integrations, examples, documentation, or reproducibility studies.",
+        "zh": "参与模型集成、示例与文档建设，或贡献复现研究。"
+      }
+    },
+    {
+      "title": {
+        "en": "Join the group",
+        "zh": "加入团队"
+      },
+      "description": {
+        "en": "Young researchers are welcome. Tell us about your interests and the questions you want to explore.",
+        "zh": "欢迎青年研究者加入，与我们分享你的研究兴趣和希望探索的问题。"
+      }
+    },
+    {
+      "title": {
+        "en": "Support our work",
+        "zh": "支持研究"
+      },
+      "description": {
+        "en": "Donations from institutes and individuals help advance open parallel intelligence. Contact us to discuss support.",
+        "zh": "欢迎机构或个人捐赠，支持开放并行智能研究。请联系我们交流支持方式。"
+      }
+    }
+  ],
+  "copy": {
+    "skipToContent": {
+      "en": "Skip to content",
+      "zh": "跳到主要内容"
+    },
+    "menu": {
+      "en": "Menu +",
+      "zh": "菜单 +"
+    },
+    "topicsLabel": {
+      "en": "Topics",
+      "zh": "研究主题"
+    },
+    "openSourceLabel": {
+      "en": "Open Source",
+      "zh": "开源模型库"
+    },
+    "researchLabel": {
+      "en": "Research",
+      "zh": "研究成果"
+    },
+    "peopleLabel": {
+      "en": "People",
+      "zh": "团队成员"
+    },
+    "joinLabel": {
+      "en": "Join & Support",
+      "zh": "加入与支持"
+    },
+    "heroEyebrow": {
+      "en": "An independent academic research collective",
+      "zh": "独立学术研究团队 · 以非营利研究为使命"
+    },
+    "heroTitle": {
+      "en": "Intelligence<br>is <em>not</em> a<br>sequence.",
+      "zh": "智能，<br>不止于<em>序列。</em>",
+      "html": true
+    },
+    "heroExplore": {
+      "en": "Explore our research",
+      "zh": "探索我们的研究"
+    },
+    "heroLatestPaper": {
+      "en": "Latest paper",
+      "zh": "最新论文"
+    },
+    "figureLabel": {
+      "en": "FIG. 01 / CONTINUOUS → COLLECTIVE",
+      "zh": "图 01 / 连续状态 → 协同生成"
+    },
+    "figureCaption": {
+      "en": "Drag to explore joint refinement. Conceptual illustration, not model output.",
+      "zh": "拖动滑杆，观察多个状态共同演化。此为概念示意，非模型生成结果。"
+    },
+    "heroTopicLanguage": {
+      "en": "CONTINUOUS LANGUAGE",
+      "zh": "连续语言建模"
+    },
+    "heroTopicInference": {
+      "en": "PARALLEL INFERENCE",
+      "zh": "并行推理"
+    },
+    "heroTopicScience": {
+      "en": "OPEN SCIENCE",
+      "zh": "开放科学"
+    },
+    "publicGood": {
+      "en": "Research for the public good.",
+      "zh": "以研究创造公共价值。"
+    },
+    "topicsTitle": {
+      "en": "Beyond one token at a time.",
+      "zh": "探索逐词生成之外的可能。"
+    },
+    "topicsIntro": {
+      "en": "We study how continuous representations and parallel computation can expand the foundations of machine intelligence.",
+      "zh": "我们研究连续表征与并行计算如何拓展机器智能的基础能力。"
+    },
+    "topicsQuestion": {
+      "en": "“Can parallel intelligence become a scalable foundation for language, reasoning, and action?”",
+      "zh": "“并行智能，能否成为语言、推理与行动的可扩展基础？”"
+    },
+    "openSourceTitle": {
+      "en": "An open library.<br>A shared foundation.",
+      "zh": "开放的模型库。<br>共享的研究基础。",
+      "html": true
+    },
+    "openSourceIntro": {
+      "en": "We are building an open library of continuous diffusion language models. Our goal is to make strong models easy to discover, use, and study through shared tools, reproducible experiments, and community collaboration.",
+      "zh": "我们正在建设连续扩散语言模型开源库，通过共享工具、可复现实验与社区合作，让优秀模型更容易发现、使用与研究。"
+    },
+    "researchTitle": {
+      "en": "Ideas, put to the test.",
+      "zh": "让想法接受实验检验。"
+    },
+    "researchIntro": {
+      "en": "Our latest work explores a central question: what should a Transformer for continuous language generation look like?",
+      "zh": "我们最近的工作关注一个基础问题：面向连续语言生成，Transformer 应该如何设计？"
+    },
+    "peopleTitle": {
+      "en": "Different perspectives. Shared curiosity.",
+      "zh": "不同视角，共同的好奇心。"
+    },
+    "affiliationNote": {
+      "en": "Affiliations identify individual backgrounds and do not imply institutional sponsorship.",
+      "zh": "机构信息用于介绍成员背景，不代表机构赞助。"
+    },
+    "joinTitle": {
+      "en": "Build with us.",
+      "zh": "一起推进开放研究。"
+    },
+    "joinIntro": {
+      "en": "Collaborate on research, contribute to the library, join the group, or support our nonprofit mission.",
+      "zh": "欢迎开展学术合作、贡献开源模型库、加入团队，或支持我们的非营利研究。"
+    },
+    "contactHeading": {
+      "en": "Collaboration & support · Weijian Luo",
+      "zh": "合作与支持联系 · Weijian Luo"
+    },
+    "emailLabel": {
+      "en": "Email",
+      "zh": "邮箱"
+    },
+    "wechatLabel": {
+      "en": "WeChat",
+      "zh": "微信"
+    },
+    "footerMission": {
+      "en": "An academic collective with a nonprofit research mission.",
+      "zh": "以非营利研究为使命的学术团队。"
+    }
+  }
+}

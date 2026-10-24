@@ -1,0 +1,236 @@
+[
+  {
+    "id": "weijian-luo",
+    "name": "Weijian Luo",
+    "initials": "WL",
+    "role": {
+      "en": "Project initiator",
+      "zh": "项目发起人"
+    },
+    "bio": {
+      "en": "PhD in Mathematics, Peking University.",
+      "zh": "北京大学数学博士。"
+    },
+    "website": "https://pkulwj1994.github.io/",
+    "showProfileLink": true,
+    "visible": true
+  },
+  {
+    "id": "tianyang-hu",
+    "name": "Tianyang Hu",
+    "initials": "TH",
+    "role": {
+      "en": "Co-initiator",
+      "zh": "联合发起人"
+    },
+    "bio": {
+      "en": "Assistant Professor, The Chinese University of Hong Kong, Shenzhen. Director of SAGA Lab at CUHK-Shenzhen; independent principal investigator.",
+      "zh": "香港中文大学（深圳）助理教授，香港中文大学（深圳）SAGA Lab 主管，独立 PI。"
+    },
+    "website": "https://hu-tianyang.github.io/",
+    "showProfileLink": false,
+    "visible": true
+  },
+  {
+    "id": "brian-k-chen",
+    "name": "Brian K Chen",
+    "initials": "BC",
+    "role": {
+      "en": "Co-initiator",
+      "zh": "联合发起人"
+    },
+    "bio": {
+      "en": "Bachelor’s degree in Mathematics, University of Oxford. PhD in Mathematics, National University of Singapore.",
+      "zh": "牛津大学数学学士，新加坡国立大学数学博士。"
+    },
+    "website": "",
+    "showProfileLink": false,
+    "visible": true
+  },
+  {
+    "id": "guang-cheng",
+    "name": "Guang Cheng",
+    "initials": "GC",
+    "role": {
+      "en": "Academic advisor",
+      "zh": "学术指导"
+    },
+    "bio": {
+      "en": "Professor of Computer Science, UCLA. Director of UCLA Trustworth Lab. Fellow of the Institute of Mathematical Statistics.",
+      "zh": "UCLA 计算机教授，UCLA Trustworth Lab 主管，国际数理统计学会会士。"
+    },
+    "website": "",
+    "showProfileLink": false,
+    "visible": true
+  },
+  {
+    "id": "hao-jiang",
+    "name": "Hao Jiang",
+    "initials": "HJ",
+    "role": {
+      "en": "Contributor",
+      "zh": "贡献者"
+    },
+    "bio": {
+      "en": "Visiting student, SAGA Lab, The Chinese University of Hong Kong, Shenzhen.",
+      "zh": "香港中文大学（深圳）SAGA Lab 访问学生。"
+    },
+    "website": "",
+    "showProfileLink": false,
+    "visible": true
+  },
+  {
+    "id": "yujian-chen",
+    "name": "Yujian Chen",
+    "initials": "YC",
+    "role": {
+      "en": "Contributor",
+      "zh": "贡献者"
+    },
+    "bio": {
+      "en": "Undergraduate, School of Computer Science, Peking University.",
+      "zh": "北京大学计算机学院本科生。"
+    },
+    "website": "",
+    "showProfileLink": false,
+    "visible": true
+  },
+  {
+    "id": "zhiyuan-yang",
+    "name": "Zhiyuan Yang",
+    "initials": "ZY",
+    "role": {
+      "en": "Contributor",
+      "zh": "贡献者"
+    },
+    "bio": {
+      "en": "Undergraduate, Turing Class, School of Computer Science, Peking University.",
+      "zh": "北京大学计算机学院（图灵班）本科生。"
+    },
+    "website": "",
+    "showProfileLink": false,
+    "visible": true
+  },
+  {
+    "id": "mingzhi-zhang",
+    "name": "Mingzhi Zhang",
+    "initials": "MZ",
+    "role": {
+      "en": "Contributor",
+      "zh": "贡献者"
+    },
+    "bio": {
+      "en": "Undergraduate, School of Mathematical Sciences, Peking University.",
+      "zh": "北京大学数学院本科生。"
+    },
+    "website": "",
+    "showProfileLink": false,
+    "visible": true
+  },
+  {
+    "id": "xinlang-cai",
+    "name": "Xinlang Cai",
+    "initials": "XC",
+    "role": {
+      "en": "Contributor",
+      "zh": "贡献者"
+    },
+    "bio": {
+      "en": "Undergraduate, Turing Class, School of Computer Science, Peking University.",
+      "zh": "北京大学计算机学院（图灵班）本科生。"
+    },
+    "website": "",
+    "showProfileLink": false,
+    "visible": true
+  },
+  {
+    "id": "yihao-shen",
+    "name": "Yihao Shen",
+    "initials": "YS",
+    "role": {
+      "en": "Contributor",
+      "zh": "贡献者"
+    },
+    "bio": {
+      "en": "Undergraduate, SAGA Lab, The Chinese University of Hong Kong, Shenzhen.",
+      "zh": "香港中文大学（深圳）SAGA Lab，本科生。"
+    },
+    "website": "",
+    "showProfileLink": false,
+    "visible": true
+  },
+  {
+    "id": "yan-wang",
+    "name": "Yan Wang",
+    "initials": "YW",
+    "role": {
+      "en": "Contributor",
+      "zh": "贡献者"
+    },
+    "bio": {
+      "en": "PhD student, SAGA Lab, The Chinese University of Hong Kong, Shenzhen.",
+      "zh": "香港中文大学（深圳）SAGA Lab，博士生。"
+    },
+    "website": "",
+    "showProfileLink": false,
+    "visible": true
+  },
+  {
+    "id": "yuhuan-lyu",
+    "name": "Yuhuan Lyu",
+    "initials": "YL",
+    "role": {
+      "en": "Contributor",
+      "zh": "贡献者"
+    },
+    "bio": {
+      "en": "Master’s student, SAGA Lab, The Chinese University of Hong Kong, Shenzhen.",
+      "zh": "香港中文大学（深圳）SAGA Lab，硕士生。"
+    },
+    "website": "",
+    "showProfileLink": false,
+    "visible": true
+  },
+  {
+    "id": "ruixi-chen",
+    "name": "Ruixi Chen",
+    "initials": "RC",
+    "role": {
+      "en": "Contributor",
+      "zh": "贡献者"
+    },
+    "bio": {
+      "en": "Undergraduate, SAGA Lab, The Chinese University of Hong Kong, Shenzhen.",
+      "zh": "香港中文大学（深圳）SAGA Lab，本科生。"
+    },
+    "website": "",
+    "showProfileLink": false,
+    "visible": true
+  },
+  {
+    "id": "yulei-sun",
+    "name": "Yulei Sun",
+    "initials": "YS",
+    "role": null,
+    "bio": {
+      "en": "Undergraduate, SAGA Lab, The Chinese University of Hong Kong, Shenzhen.",
+      "zh": "香港中文大学（深圳）SAGA Lab，本科生。"
+    },
+    "website": "",
+    "showProfileLink": false,
+    "visible": true
+  },
+  {
+    "id": "jiayi-han",
+    "name": "Jiayi Han",
+    "initials": "JH",
+    "role": null,
+    "bio": {
+      "en": "Undergraduate, SAGA Lab, The Chinese University of Hong Kong, Shenzhen.",
+      "zh": "香港中文大学（深圳）SAGA Lab，本科生。"
+    },
+    "website": "",
+    "showProfileLink": false,
+    "visible": true
+  }
+]

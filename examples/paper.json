@@ -1,0 +1,17 @@
+{
+  "id": "my-paper",
+  "published": false,
+  "date": "2026-10-24",
+  "title": "Your paper title",
+  "authors": ["First Author", "Second Author"],
+  "status": { "en": "PREPRINT", "zh": "预印本" },
+  "summary": { "en": "A short description of the contribution.", "zh": "用两三句话介绍论文贡献。" },
+  "links": [],
+  "bibtex": "",
+  "cover": {
+    "kind": "text",
+    "title": "Paper name",
+    "eyebrow": "CONTINUOUS LANGUAGE MODELS",
+    "captionLines": ["One sentence about the work."]
+  }
+}
