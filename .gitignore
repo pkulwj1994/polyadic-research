@@ -1,0 +1,8 @@
+.DS_Store
+.openai/
+node_modules/
+dist/
+*.zip
+*.log
+.env
+.env.*
