@@ -1,0 +1,97 @@
+{
+  "id": "nipsd-2026",
+  "published": true,
+  "date": "2026-10-30",
+  "title": "Understanding and Enabling Score Distillation in Continuous Diffusion Language Models",
+  "authors": [
+    "Hao Jiang",
+    "Yujian Chen",
+    "Ruixi Chen",
+    "Yihong Luo",
+    "Guang Cheng",
+    "Weijian Luo",
+    "Tianyang Hu"
+  ],
+  "status": {
+    "en": "PREPRINT",
+    "zh": "预印本"
+  },
+  "summary": {
+    "en": "NIPSD adapts score-based distribution matching to continuous diffusion language models through teacher-trajectory warmup, noise-interpolated perturbations, and continuous student-score estimation. It enables one-step and few-step generation with FLM and LangFlow while resolving token uncertainty and preserving variation across samples.",
+    "zh": "NIPSD 通过教师轨迹预热、噪声插值扰动和连续学生 score 估计，将基于 score 的分布匹配迁移到连续扩散语言模型，在降低 token 不确定性的同时保留样本间变化，实现 FLM 与 LangFlow 的一步及少步生成。"
+  },
+  "links": [
+    {
+      "label": {
+        "en": "PDF",
+        "zh": "PDF"
+      },
+      "url": "assets/papers/nipsd.pdf"
+    }
+  ],
+  "bibtex": "@unpublished{jiang2026understanding,\n  title={Understanding and Enabling Score Distillation in Continuous Diffusion Language Models},\n  author={Hao Jiang and Yujian Chen and Ruixi Chen and Yihong Luo and Guang Cheng and Weijian Luo and Tianyang Hu},\n  year={2026},\n  note={Preprint}\n}",
+  "cover": {
+    "kind": "image",
+    "image": "assets/papers/nipsd-preview.gif",
+    "poster": "assets/papers/nipsd-poster.png",
+    "alt": "Animated conceptual overview of NIPSD: a frozen CDLM teacher guides distillation through CD warmup, noise-interpolated perturbations, and FiTScore; at inference, only the distilled generator maps noise to joint token outputs in one or a few evaluations."
+  },
+  "results": {
+    "summary": {
+      "en": "Selected reported results & evaluation context",
+      "zh": "展开论文结果与评测条件"
+    },
+    "caption": {
+      "en": "OpenWebText · 1,024-token generation · One-step models initialized from distilled two-step generators",
+      "zh": "OpenWebText · 1,024 token 生成 · 一步模型由已蒸馏的两步生成器初始化"
+    },
+    "columns": [
+      {
+        "en": "Model",
+        "zh": "模型"
+      },
+      {
+        "en": "NFE",
+        "zh": "NFE"
+      },
+      {
+        "en": "GenPPL ↓",
+        "zh": "GenPPL ↓"
+      },
+      {
+        "en": "Entropy",
+        "zh": "熵"
+      }
+    ],
+    "rows": [
+      [
+        "FLM teacher",
+        "512",
+        "70.91",
+        "5.41"
+      ],
+      [
+        "FLM + NIPSD",
+        "1",
+        "73.55",
+        "5.17"
+      ],
+      [
+        "LangFlow teacher",
+        "512",
+        "41.52",
+        "5.31"
+      ],
+      [
+        "LangFlow + NIPSD",
+        "1",
+        "43.10",
+        "5.26"
+      ]
+    ],
+    "note": {
+      "en": "Table 2: one-step NIPSD models are initialized from already-distilled two-step generators and trained with Diff-Instruct (DI). GenPPL is evaluated by GPT-2 Large on 1,024 generated samples; entropy is mean per-sample unigram entropy. These scores do not measure wall-clock speedup. Table 1 reports standard-initialization results at 1, 2, and 4 NFE, including one-step GenPPL of 132.90 for FLM+NIPSD and 70.08 for LangFlow+NIPSD.",
+      "zh": "对应论文表 2：一步 NIPSD 模型由已蒸馏的两步生成器初始化，并使用 Diff-Instruct（DI）训练。GenPPL 使用 GPT-2 Large 对 1,024 个生成样本评测；熵为逐样本 unigram 熵的均值。这些分数不代表实际运行加速比。标准初始化下的 1、2、4 NFE 结果见表 1，其中 FLM+NIPSD 与 LangFlow+NIPSD 的一步 GenPPL 分别为 132.90 和 70.08。"
+    }
+  }
+}
