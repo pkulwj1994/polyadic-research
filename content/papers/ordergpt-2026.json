@@ -1,0 +1,99 @@
+{
+  "id": "ordergpt-2026",
+  "published": true,
+  "date": "2026-10-19",
+  "title": "OrderGPT: Generation Order as a Learnable Modeling Choice",
+  "authors": [
+    "Chenhe Yang",
+    "Yuhuan Lyu",
+    "Tianyang Hu"
+  ],
+  "status": {
+    "en": "PREPRINT",
+    "zh": "预印本"
+  },
+  "summary": {
+    "en": "OrderGPT learns a task-level generation order from AO-GPT attention. A spectral teacher supervises OrderMLP priorities; training transitions to the learned order, which is frozen for autoregressive generation across language, human-pose, and tabular tasks.",
+    "zh": "OrderGPT 从 AO-GPT 注意力中学习任务级生成顺序，以谱教师监督 OrderMLP 的优先级预测，逐步转向学习到的顺序，并将其固定用于自回归生成，覆盖语言、人体姿态与表格任务。"
+  },
+  "links": [
+    {
+      "label": {
+        "en": "Read paper",
+        "zh": "阅读论文"
+      },
+      "url": "https://arxiv.org/abs/2610.25949"
+    },
+    {
+      "label": {
+        "en": "PDF",
+        "zh": "PDF"
+      },
+      "url": "https://arxiv.org/pdf/2610.25949"
+    },
+    {
+      "label": {
+        "en": "Code",
+        "zh": "代码"
+      },
+      "url": "https://github.com/Chenhe-yang/OrderGPT"
+    }
+  ],
+  "bibtex": "@misc{yang2026ordergpt,\n  title={OrderGPT: Generation Order as a Learnable Modeling Choice},\n  author={Chenhe Yang and Yuhuan Lyu and Tianyang Hu},\n  year={2026},\n  eprint={2610.25949},\n  archivePrefix={arXiv},\n  primaryClass={cs.AI},\n  url={https://arxiv.org/abs/2610.25949}\n}",
+  "cover": {
+    "kind": "image",
+    "image": "assets/papers/ordergpt-preview.gif",
+    "poster": "assets/papers/ordergpt-poster.png",
+    "alt": "Animated conceptual overview of OrderGPT: aggregated attention supports spectral supervision and OrderMLP priority learning, followed by autoregressive generation under one frozen task-level order. The displayed variable order is illustrative."
+  },
+  "results": {
+    "summary": {
+      "en": "Selected reported results & evaluation context",
+      "zh": "展开论文结果与评测条件"
+    },
+    "caption": {
+      "en": "OpenWebText training · 400k updates · Selected zero-shot perplexity ↓",
+      "zh": "OpenWebText 训练 · 400k 更新 · 部分零样本困惑度，越低越好"
+    },
+    "columns": [
+      {
+        "en": "Model / inference order",
+        "zh": "模型／推理顺序"
+      },
+      {
+        "en": "WikiText-103",
+        "zh": "WikiText-103"
+      },
+      {
+        "en": "1BW",
+        "zh": "1BW"
+      }
+    ],
+    "rows": [
+      [
+        "AO-GPT (random inference)",
+        "55.635",
+        "90.168"
+      ],
+      [
+        "AO-GPT (L2R inference)",
+        "58.535",
+        "91.069"
+      ],
+      [
+        "Fixed-random AR + curriculum",
+        "51.800",
+        "86.870"
+      ],
+      [
+        "OrderGPT (Order MLP)",
+        "39.217",
+        "70.046"
+      ]
+    ],
+    "note": {
+      "en": "Internal comparisons from Table 1 use matched backbone capacity, preprocessing, and 400k-update budgets, with 1,024-token training contexts and no language-model EMA or prescribed L2R training mixture. The two AO-GPT rows evaluate the same checkpoint. OrderGPT freezes its learned task-level order for inference. These are reported perplexities, not generation perplexity or speed measurements; the paper also evaluates human-pose and tabular modeling.",
+      "zh": "取自表 1 的内部对照，统一骨干容量、预处理与 400k 更新预算，训练上下文为 1,024 token，不使用语言模型 EMA 或预设的 L2R 训练混合。两行 AO-GPT 使用同一检查点。OrderGPT 在推理时固定学习到的任务级顺序。这里是论文报告的困惑度，不是生成困惑度或速度指标；论文另有人体姿态与表格建模评测。"
+    }
+  }
+}
