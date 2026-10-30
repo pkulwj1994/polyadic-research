@@ -1,0 +1,82 @@
+{
+  "id": "generative-gap-2026",
+  "published": true,
+  "date": "2026-10-30",
+  "title": "The Generative Gap Between Speculative Drafter and Continuous Diffusion Language Model",
+  "authors": [
+    "Yujian Chen",
+    "Hao Jiang",
+    "Guang Cheng",
+    "Weijian Luo",
+    "Tianyang Hu"
+  ],
+  "status": {
+    "en": "PREPRINT",
+    "zh": "预印本"
+  },
+  "summary": {
+    "en": "A standalone generation comparison of DSpark-style drafters and LangFlow without target features or verification. Recurrent head memory improves the drafter, but LangFlow leads on longer sequences under the evaluated budgets; additional full-sequence refinement improves generation at fixed weights.",
+    "zh": "在无目标模型特征与验证的条件下，对比 DSpark 类草稿模型与 LangFlow 的独立生成能力。循环头记忆改善草稿模型，但在测试预算下，LangFlow 在较长序列上仍领先；增加整段迭代可在固定权重下进一步改善生成。"
+  },
+  "links": [
+    {
+      "label": {
+        "en": "PDF",
+        "zh": "PDF"
+      },
+      "url": "assets/papers/generative-gap.pdf"
+    }
+  ],
+  "bibtex": "@unpublished{chen2026generative,\n  title={The Generative Gap Between Speculative Drafter and Continuous Diffusion Language Model},\n  author={Yujian Chen and Hao Jiang and Guang Cheng and Weijian Luo and Tianyang Hu},\n  year={2026},\n  note={Preprint}\n}",
+  "cover": {
+    "kind": "image",
+    "image": "assets/papers/generative-gap-preview.gif",
+    "poster": "assets/papers/generative-gap-poster.png",
+    "alt": "Animated comparison of standalone generation: DSpark-style drafters use one backbone pass and sequential Markov or recurrent head sampling, while LangFlow iteratively refines a continuous full-sequence state before joint token readout."
+  },
+  "results": {
+    "summary": {
+      "en": "Selected reported results & evaluation context",
+      "zh": "展开论文结果与评测条件"
+    },
+    "caption": {
+      "en": "OpenWebText · 1,024-token unconditional single-block generation",
+      "zh": "OpenWebText · 1,024 token 无条件单块生成"
+    },
+    "columns": [
+      {
+        "en": "Model",
+        "zh": "模型"
+      },
+      {
+        "en": "GenPPL ↓",
+        "zh": "GenPPL ↓"
+      },
+      {
+        "en": "MAUVE ↑",
+        "zh": "MAUVE ↑"
+      }
+    ],
+    "rows": [
+      [
+        "DSpark-Markov",
+        "524.79",
+        "0.0104"
+      ],
+      [
+        "DSpark-RNN",
+        "216.93",
+        "0.0780"
+      ],
+      [
+        "LangFlow",
+        "50.16",
+        "0.8370"
+      ]
+    ],
+    "note": {
+      "en": "100k-update EMA checkpoints with common data preprocessing, backbone dimensions, and training-update budgets. LangFlow uses 1,024 denoiser evaluations; drafters use one backbone pass followed by 1,024 head sampling steps. These are standalone adaptations trained from scratch without target features or verification, and the comparison is not matched for sampling compute. LangFlow leads at lengths 128 and 1,024 under the default budgets; DSpark-RNN leads at length 16. See the paper for full settings and limitations.",
+      "zh": "采用 100k 更新的 EMA 检查点，统一数据预处理、骨干维度与训练更新预算。LangFlow 使用 1,024 次去噪评估；草稿模型使用一次骨干前向与 1,024 步头部采样。这些独立生成改造模型均从零训练，不使用目标模型特征或验证；采样计算量并未对齐。默认预算下，LangFlow 在长度 128、1,024 时领先，DSpark-RNN 在长度 16 时领先。完整配置与局限见论文。"
+    }
+  }
+}
