@@ -1,0 +1,103 @@
+{
+  "id": "prefixmemory-2025",
+  "published": true,
+  "date": "2025-06-16",
+  "title": "PrefixMemory-Tuning: Modernizing Prefix-Tuning by Decoupling the Prefix from Attention",
+  "authors": [
+    "Haonan Wang",
+    "Brian K. Chen",
+    "Siquan Li",
+    "Xinhe Liang",
+    "Hwee Kuan Lee",
+    "Kenji Kawaguchi",
+    "Tianyang Hu"
+  ],
+  "status": {
+    "en": "ICLR 2026",
+    "zh": "ICLR 2026"
+  },
+  "summary": {
+    "en": "PrefixMemory-Tuning moves prefix information outside attention into a trainable, query-conditioned memory. Adding this memory output to frozen attention avoids the shared-softmax competition between input and prefix contributions, improving parameter-efficient adaptation across the evaluated classification, preference-alignment, and math-reasoning tasks.",
+    "zh": "PrefixMemory-Tuning 将前缀信息移出 attention，改为可训练的查询条件记忆，并与冻结的注意力输出相加，避免输入与前缀在共享 softmax 中争夺权重，在分类、偏好对齐和数学推理评测中改善参数高效适配。"
+  },
+  "links": [
+    {
+      "label": {
+        "en": "Read paper",
+        "zh": "阅读论文"
+      },
+      "url": "https://arxiv.org/abs/2506.13674"
+    },
+    {
+      "label": {
+        "en": "PDF",
+        "zh": "PDF"
+      },
+      "url": "https://arxiv.org/pdf/2506.13674"
+    },
+    {
+      "label": {
+        "en": "ICLR 2026",
+        "zh": "ICLR 2026"
+      },
+      "url": "https://openreview.net/forum?id=LvUMpZE44r"
+    }
+  ],
+  "bibtex": "@inproceedings{wang2026prefixmemory,\n  title={PrefixMemory-Tuning: Modernizing Prefix-Tuning by Decoupling the Prefix from Attention},\n  author={Haonan Wang and Brian K. Chen and Siquan Li and Xinhe Liang and Hwee Kuan Lee and Kenji Kawaguchi and Tianyang Hu},\n  booktitle={International Conference on Learning Representations},\n  year={2026},\n  url={https://openreview.net/forum?id=LvUMpZE44r}\n}",
+  "cover": {
+    "kind": "image",
+    "image": "assets/papers/prefixmemory-preview.gif",
+    "poster": "assets/papers/prefixmemory-poster.png",
+    "alt": "Animated conceptual overview of PrefixMemory-Tuning: input branches into frozen backbone attention and trainable query-conditioned memory phi(q)^T M; their outputs are added outside the attention softmax."
+  },
+  "results": {
+    "summary": {
+      "en": "Selected reported results & evaluation context",
+      "zh": "展开论文结果与评测条件"
+    },
+    "caption": {
+      "en": "BigBench · One example per class · Accuracy (%) ↑",
+      "zh": "BigBench · 每类一个训练样本 · 准确率（%），越高越好"
+    },
+    "columns": [
+      {
+        "en": "Adaptation method",
+        "zh": "适配方法"
+      },
+      {
+        "en": "LLaMA2-7B-Chat",
+        "zh": "LLaMA2-7B-Chat"
+      },
+      {
+        "en": "Qwen2.5-3B-Instruct",
+        "zh": "Qwen2.5-3B-Instruct"
+      }
+    ],
+    "rows": [
+      [
+        "Full fine-tuning",
+        "38.8",
+        "67.4"
+      ],
+      [
+        "LoRA (r=64)",
+        "67.4",
+        "61.4"
+      ],
+      [
+        "Prefix-Tuning (m=32)",
+        "21.3",
+        "52.0"
+      ],
+      [
+        "PrefixMemory-Tuning",
+        "71.2",
+        "76.6"
+      ]
+    ],
+    "note": {
+      "en": "Table 1 of arXiv v3 / the ICLR 2026 paper. Mean test accuracy over five independent trials, each sampling one training example per class. LoRA uses rank 64; Prefix-Tuning uses 32 virtual tokens; PMT uses ELU features. These diagnostic few-shot results do not imply identical trainable-parameter counts or universal gains. Preference alignment and critique-based math fine-tuning are evaluated separately. The entry date follows the initial arXiv submission (June 16, 2025).",
+      "zh": "对应 arXiv v3／ICLR 2026 论文表 1。结果为五次独立试验的平均测试准确率，每次从每类抽取一个训练样本。LoRA 秩为 64，Prefix-Tuning 使用 32 个虚拟 token，PMT 使用 ELU 特征。这些是少样本诊断实验，不代表可训练参数量完全相同或所有任务均有相同收益；偏好对齐与基于点评的数学微调另有评测。条目日期采用 arXiv 首次提交日（2025-06-16）。"
+    }
+  }
+}
