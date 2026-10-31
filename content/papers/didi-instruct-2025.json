@@ -1,0 +1,111 @@
+{
+  "id": "didi-instruct-2025",
+  "published": true,
+  "date": "2025-09-29",
+  "title": "Ultra-Fast Language Generation via Discrete Diffusion Divergence Instruct",
+  "authors": [
+    "Haoyang Zheng",
+    "Xinyang Liu",
+    "Cindy Xiangrui Kong",
+    "Nan Jiang",
+    "Zheyuan Hu",
+    "Weijian Luo",
+    "Wei Deng",
+    "Guang Lin"
+  ],
+  "status": {
+    "en": "ICLR 2026",
+    "zh": "ICLR 2026"
+  },
+  "summary": {
+    "en": "DiDi-Instruct distills masked diffusion language models through integral KL minimization with discriminator-estimated density-ratio rewards. Grouped reward normalization and intermediate-state matching stabilize training, while reward-guided ancestral sampling enables efficient few-step parallel generation.",
+    "zh": "DiDi-Instruct 以判别器估计的密度比奖励最小化积分 KL，蒸馏 masked diffusion 语言模型。分组奖励归一化与中间状态匹配稳定训练，奖励引导祖先采样支持高效的少步并行生成。"
+  },
+  "links": [
+    {
+      "label": {
+        "en": "Read paper",
+        "zh": "阅读论文"
+      },
+      "url": "https://arxiv.org/abs/2509.25035"
+    },
+    {
+      "label": {
+        "en": "PDF",
+        "zh": "PDF"
+      },
+      "url": "https://arxiv.org/pdf/2509.25035"
+    },
+    {
+      "label": {
+        "en": "Code",
+        "zh": "代码"
+      },
+      "url": "https://github.com/haoyangzheng-ai/didi-instruct"
+    },
+    {
+      "label": {
+        "en": "Project page",
+        "zh": "项目主页"
+      },
+      "url": "https://haoyangzheng.github.io/research/didi-instruct/"
+    }
+  ],
+  "bibtex": "@inproceedings{zheng2026didi,\n  title={Ultra-Fast Language Generation via Discrete Diffusion Divergence Instruct},\n  author={Haoyang Zheng and Xinyang Liu and Cindy Xiangrui Kong and Nan Jiang and Zheyuan Hu and Weijian Luo and Wei Deng and Guang Lin},\n  booktitle={International Conference on Learning Representations},\n  year={2026},\n  url={https://openreview.net/forum?id=mtdyZsa47V}\n}",
+  "cover": {
+    "kind": "image",
+    "image": "assets/papers/didi-instruct-preview.gif",
+    "poster": "assets/papers/didi-instruct-poster.png",
+    "alt": "Animated conceptual overview of DiDi-Instruct: teacher and student samples are remasked at a shared noise level; a discriminator estimates density-ratio rewards to update the student. Few-step masked diffusion generation uses the student with discriminator-guided RGAS sampling."
+  },
+  "results": {
+    "summary": {
+      "en": "Selected reported results & evaluation context",
+      "zh": "展开论文结果与评测条件"
+    },
+    "caption": {
+      "en": "OpenWebText · 1,024-token unconditional generation · 169M teacher/student",
+      "zh": "OpenWebText · 1,024 token 无条件生成 · 169M 教师／学生模型"
+    },
+    "columns": [
+      {
+        "en": "Model / NFE",
+        "zh": "模型／NFE"
+      },
+      {
+        "en": "GenPPL ↓",
+        "zh": "GenPPL ↓"
+      },
+      {
+        "en": "Entropy",
+        "zh": "熵"
+      }
+    ],
+    "rows": [
+      [
+        "MDLM teacher · 1,024",
+        "38.530",
+        "5.22"
+      ],
+      [
+        "DiDi-Instruct · 8",
+        "62.236",
+        "5.17"
+      ],
+      [
+        "DiDi-Instruct · 16",
+        "38.188",
+        "5.21"
+      ],
+      [
+        "DiDi-Instruct · 128",
+        "18.446",
+        "5.15"
+      ]
+    ],
+    "note": {
+      "en": "arXiv v3, Section 4 and Table 1: the DiDi-Instruct rows use the complete configuration, including reward-guided ancestral sampling (RGAS). GenPPL is measured by GPT-2 Large; entropy is the reported sequence token entropy. RGAS uses a 131M discriminator, adding guidance and candidate-selection costs, so NFE ratios should not be interpreted as wall-clock speedups. The entry date follows the initial arXiv submission (September 29, 2025).",
+      "zh": "取自 arXiv v3 第 4 节及表 1：DiDi-Instruct 行使用完整配置，包含奖励引导祖先采样（RGAS）。GenPPL 由 GPT-2 Large 评测，熵为论文报告的序列 token 熵。RGAS 使用 131M 判别器，另有引导与候选选择开销，因此 NFE 比值不等于实际运行加速比。条目日期采用 arXiv 首次提交日（2025-09-29）。"
+    }
+  }
+}
