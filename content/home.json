@@ -2,15 +2,15 @@
   "heroBullets": [
     {
       "text": {
-        "en": "We are a <span class='color-word'>non-profit</span> academic group studying intelligence that <span class='color-word color-word--teal'>thinks continuously</span> and <span class='color-word color-word--teal'>generates together</span>.",
-        "zh": "我们是一个<span class='color-word'>非营利</span>学术团队，探索<span class='color-word color-word--teal'>持续思考</span>、<span class='color-word color-word--teal'>协同生成</span>的智能。",
+        "en": "We are a <span class='color-word'>nonprofit academic organization</span> dedicated to exploring <span class='color-word color-word--teal'>next-generation model paradigms beyond Next-token Prediction</span>.",
+        "zh": "我们是一个<span class='color-word'>非营利性学术组织</span>，致力于探索 <span class='color-word color-word--teal'>Next-token Prediction 之外的新一代模型范式</span>。",
         "html": true
       }
     },
     {
       "text": {
-        "en": "We build open foundations for <span class='color-word'>continuous diffusion language models</span> and <span class='color-word'>parallel reasoning</span>.",
-        "zh": "我们为<span class='color-word'>连续扩散语言模型</span>与<span class='color-word'>并行推理</span>构建开放基础。",
+        "en": "Starting with <span class='color-word'>continuous diffusion language models</span>, we study <span class='color-word'>continuous language representations</span> and <span class='color-word'>parallel reasoning</span> to explore how machine intelligence can become more capable and computationally efficient.",
+        "zh": "我们以<span class='color-word'>连续扩散语言模型</span>为起点，研究<span class='color-word'>连续语言表征</span>与<span class='color-word'>并行思考</span>，探索如何以更高效率实现更强的机器智能。",
         "html": true
       }
     },
@@ -40,12 +40,12 @@
   "topics": [
     {
       "title": {
-        "en": "Continuous language models",
-        "zh": "连续语言模型"
+        "en": "Continuous diffusion language models",
+        "zh": "连续扩散语言模型"
       },
       "description": {
-        "en": "Build and understand models that generate language through continuous-state refinement. Study token representations, denoising architectures, noise conditioning, and scaling behavior.",
-        "zh": "研究通过连续状态迭代生成语言的模型，探索 token 表征、去噪架构、噪声条件与规模化规律。"
+        "en": "Study model paradigms that generate language through continuous-state refinement in a consciousness space. Explore token representations, denoising architectures, noise conditioning, and scaling behavior.",
+        "zh": "研究通过在意识空间中连续状态迭代生成语言的模型范式，探索 token 表征、去噪架构、噪声条件与规模化规律。"
       },
       "tagLines": [
         "MODELS",
@@ -68,12 +68,12 @@
     },
     {
       "title": {
-        "en": "Foundations & scaling",
-        "zh": "基础问题与规模化"
+        "en": "Efficient, capable next-generation machine intelligence",
+        "zh": "高效高智的下一代机器智能"
       },
       "description": {
-        "en": "Study how data, compute, and model design shape learning and generalization, and how continuous language models can support reasoning and action.",
-        "zh": "研究数据、算力与模型设计如何影响学习和泛化，以及连续语言模型如何支持推理与行动。"
+        "en": "Study how data, compute, and model design shape learning, generalization, and scaling in continuous diffusion language models.",
+        "zh": "研究数据、算力与模型设计如何影响连续扩散语言模型的学习，泛化与规模化。"
       },
       "tagLines": [
         "FOUNDATIONS",
@@ -170,7 +170,7 @@
     },
     "openSourceLabel": {
       "en": "Open Source",
-      "zh": "开源模型库"
+      "zh": "开源代码"
     },
     "researchLabel": {
       "en": "Research",
@@ -185,12 +185,12 @@
       "zh": "加入与支持"
     },
     "heroEyebrow": {
-      "en": "An independent academic research collective",
-      "zh": "独立学术研究团队 · 以非营利研究为使命"
+      "en": "Polyadic Research Group",
+      "zh": "Polyadic Research Group"
     },
     "heroTitle": {
-      "en": "Intelligence<br>is <em>not</em> a<br>sequence.",
-      "zh": "智能，<br>不止于<em>序列。</em>",
+      "en": "Intelligence is<br><em>not a sequence.</em>",
+      "zh": "智能，<br><em>不止于序列。</em>",
       "html": true
     },
     "heroExplore": {
@@ -205,41 +205,37 @@
       "en": "FIG. 01 / CONTINUOUS → COLLECTIVE",
       "zh": "图 01 / 连续状态 → 协同生成"
     },
-    "figureCaption": {
-      "en": "Drag to explore joint refinement. Conceptual illustration, not model output.",
-      "zh": "拖动滑杆，观察多个状态共同演化。此为概念示意，非模型生成结果。"
-    },
     "heroTopicLanguage": {
-      "en": "CONTINUOUS LANGUAGE",
-      "zh": "连续语言建模"
+      "en": "CONTINUOUS DIFFUSION MODELS",
+      "zh": "连续扩散模型"
     },
     "heroTopicInference": {
       "en": "PARALLEL INFERENCE",
       "zh": "并行推理"
     },
     "heroTopicScience": {
-      "en": "OPEN SCIENCE",
-      "zh": "开放科学"
+      "en": "NEXT-GENERATION FOUNDATION MODELS",
+      "zh": "下一代基础模型"
     },
     "publicGood": {
-      "en": "Research for the public good.",
-      "zh": "以研究创造公共价值。"
+      "en": "Share models, code, and research findings openly.",
+      "zh": "开放分享模型、代码与研究发现。"
     },
     "topicsTitle": {
       "en": "Beyond one token at a time.",
       "zh": "探索逐词生成之外的可能。"
     },
     "topicsIntro": {
-      "en": "We study how continuous representations and parallel computation can expand the foundations of machine intelligence.",
-      "zh": "我们研究连续表征与并行计算如何拓展机器智能的基础能力。"
+      "en": "We currently focus on how continuous language representations and parallel computation for reasoning can improve machine intelligence more cost-effectively.",
+      "zh": "我们目前聚焦于研究连续语言表征与并行计算思考如何更经济有效地提高机器智能。"
     },
     "topicsQuestion": {
-      "en": "“Can parallel intelligence become a scalable foundation for language, reasoning, and action?”",
-      "zh": "“并行智能，能否成为语言、推理与行动的可扩展基础？”"
+      "en": "“Serial thinking limits LLM intelligence at a given parameter count. Parallel thinking will be essential to the next generation of efficient intelligence.”",
+      "zh": "“LLM的串行思考限制了同参数量下的智能水平。并行思考将成为下一代高效智能的必经之路。”"
     },
     "openSourceTitle": {
-      "en": "An open library.<br>A shared foundation.",
-      "zh": "开放的模型库。<br>共享的研究基础。",
+      "en": "Open model code.<br>Shared research progress.",
+      "zh": "开放的模型代码。<br>共享的研究进展。",
       "html": true
     },
     "openSourceIntro": {
@@ -247,20 +243,16 @@
       "zh": "我们正在建设连续扩散语言模型开源库，通过共享工具、可复现实验与社区合作，让优秀模型更容易发现、使用与研究。"
     },
     "researchTitle": {
-      "en": "Ideas, put to the test.",
-      "zh": "让想法接受实验检验。"
+      "en": "Recent research highlights",
+      "zh": "最新研究摘录"
     },
     "researchIntro": {
-      "en": "Our latest work explores a central question: what should a Transformer for continuous language generation look like?",
-      "zh": "我们最近的工作关注一个基础问题：面向连续语言生成，Transformer 应该如何设计？"
+      "en": "Read our latest research reports on key topics in continuous diffusion language models, including model architectures, loss functions, quantization, inference, and memory.",
+      "zh": "连续扩散语言模型的模型结构，损失函数，量化，推理，记忆等关键主题，阅读我们最新的研究报告"
     },
     "peopleTitle": {
-      "en": "Different perspectives. Shared curiosity.",
-      "zh": "不同视角，共同的好奇心。"
-    },
-    "affiliationNote": {
-      "en": "Affiliations identify individual backgrounds and do not imply institutional sponsorship.",
-      "zh": "机构信息用于介绍成员背景，不代表机构赞助。"
+      "en": "Different researchers. Shared curiosity.",
+      "zh": "不同的研究员，共同的好奇心"
     },
     "joinTitle": {
       "en": "Build with us.",
@@ -271,8 +263,8 @@
       "zh": "欢迎开展学术合作、贡献开源模型库、加入团队，或支持我们的非营利研究。"
     },
     "contactHeading": {
-      "en": "Collaboration & support · Weijian Luo",
-      "zh": "合作与支持联系 · Weijian Luo"
+      "en": "Collaboration & support · William Weijian Luo",
+      "zh": "合作与支持联系 · William Weijian Luo"
     },
     "emailLabel": {
       "en": "Email",
@@ -283,8 +275,33 @@
       "zh": "微信"
     },
     "footerMission": {
-      "en": "An academic collective with a nonprofit research mission.",
-      "zh": "以非营利研究为使命的学术团队。"
+      "en": "A nonprofit academic organization exploring next-generation model paradigms.",
+      "zh": "探索新一代模型范式的非营利性学术组织。"
+    },
+    "heroIntro": {
+      "en": "Starting with continuous diffusion large language models, we develop the next generation of highly efficient AI models.",
+      "zh": "以连续扩散大语言模型为起点，研发下一代高效率智能模型。"
+    },
+    "replayLabel": {
+      "en": "Replay",
+      "zh": "重新播放"
+    },
+    "refinementLabel": {
+      "en": "Refinement progress",
+      "zh": "共同迭代进度"
+    },
+    "openSourceAction": {
+      "en": "Contribute to the library",
+      "zh": "参与开源模型库建设"
+    },
+    "aboutLabel": {
+      "en": "Our mission",
+      "zh": "我们的使命"
+    },
+    "aboutTitle": {
+      "en": "Exploring new<br>model paradigms.",
+      "zh": "探索下一代<br>智能模型范式。",
+      "html": true
     }
   }
 }

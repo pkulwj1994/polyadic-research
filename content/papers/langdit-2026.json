@@ -1,6 +1,7 @@
 {
   "id": "langdit-2026",
   "published": true,
+  "order": 0,
   "date": "2026-10-15",
   "title": "Designing Transformers for Continuous Diffusion Language Models",
   "authors": [

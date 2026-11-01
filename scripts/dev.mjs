@@ -12,7 +12,7 @@ if(!Number.isInteger(port)||port<1||port>65535)throw new Error('Choose a valid p
 build();
 let revision=0,buildError='';
 const listeners=new Set();
-const mime={'.html':'text/html; charset=utf-8','.svg':'image/svg+xml','.png':'image/png','.jpg':'image/jpeg','.jpeg':'image/jpeg','.webp':'image/webp','.gif':'image/gif','.pdf':'application/pdf'};
+const mime={'.html':'text/html; charset=utf-8','.css':'text/css; charset=utf-8','.js':'text/javascript; charset=utf-8','.svg':'image/svg+xml','.png':'image/png','.jpg':'image/jpeg','.jpeg':'image/jpeg','.webp':'image/webp','.gif':'image/gif','.pdf':'application/pdf'};
 const liveReload='<script>const updates=new EventSource("/__events");updates.addEventListener("change",()=>location.reload());</script>';
 const dist=path.join(projectRoot,'dist');
 const server=createServer((req,res)=>{
@@ -22,9 +22,15 @@ const server=createServer((req,res)=>{
     res.write(`event: ready\ndata: ${revision}\n\n`);listeners.add(res);req.on('close',()=>listeners.delete(res));return;
   }
   try{
-    const pathname=decodeURIComponent(new URL(req.url,'http://localhost').pathname);
-    const file=path.resolve(dist,'.'+(pathname==='/'?'/index.html':pathname));
-    if(!file.startsWith(dist+path.sep)||!existsSync(file)||!statSync(file).isFile()){res.writeHead(404);res.end('Not found');return;}
+    const requestUrl=new URL(req.url,'http://localhost');
+    const pathname=decodeURIComponent(requestUrl.pathname);
+    let file=path.resolve(dist,'.'+(pathname==='/'?'/index.html':pathname));
+    if(!file.startsWith(dist+path.sep)){res.writeHead(404);res.end('Not found');return;}
+    if(existsSync(file) && statSync(file).isDirectory()){
+      if(!requestUrl.pathname.endsWith('/')){res.writeHead(308,{'Location':requestUrl.pathname+'/'+requestUrl.search});res.end();return;}
+      file=path.join(file,'index.html');
+    }
+    if(!existsSync(file)||!statSync(file).isFile()){res.writeHead(404);res.end('Not found');return;}
     if(buildError && path.extname(file)==='.html'){
       res.writeHead(500,{'Content-Type':'text/plain; charset=utf-8'});res.end('Build failed. Fix the content file, then refresh.\n\n'+buildError);return;
     }
@@ -42,7 +48,7 @@ const rebuild=()=>{
     for(const response of listeners)response.write(`event: change\ndata: ${revision}\n\n`);
   },150);
 };
-const watchers=['content','src','assets'].map(dir=>watch(path.join(projectRoot,dir),{recursive:true},rebuild));
+const watchers=['content','src','assets','others'].filter(dir=>existsSync(path.join(projectRoot,dir))).map(dir=>watch(path.join(projectRoot,dir),{recursive:true},rebuild));
 const heartbeat=setInterval(()=>{for(const response of listeners)response.write(': keepalive\n\n');},20000);
 server.on('error',error=>{console.error(error.message);process.exit(1);});
 server.listen(port,host,()=>console.log(`Polyadic preview: http://${host==='0.0.0.0'?'localhost':host}:${port}/\nEdit content/ to rebuild and reload. Ctrl+C to stop.`));

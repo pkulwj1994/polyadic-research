@@ -1,6 +1,7 @@
 {
   "id": "didi-instruct-2025",
   "published": true,
+  "order": 3,
   "date": "2025-09-29",
   "title": "Ultra-Fast Language Generation via Discrete Diffusion Divergence Instruct",
   "authors": [

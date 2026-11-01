@@ -46,6 +46,13 @@ export function assetData(root, value) {
   return `data:${mime};base64,${readFileSync(file).toString('base64')}`;
 }
 
+export function postSourcePath(root, value, entry='index.html') {
+  if(typeof value!=='string' || !/^others\/[A-Za-z0-9_-]+\/(?:index|zh)\.html$/.test(value) || path.basename(value)!==entry)throw new Error(`Post source must be others/<folder>/${entry}.`);
+  const file=path.join(root,value);
+  if(!existsSync(file) || !statSync(file).isFile())throw new Error(`Missing post source: ${value}`);
+  return file;
+}
+
 export function loadContent(root) {
   const json = file => {
     try { return JSON.parse(readFileSync(path.join(root, file), 'utf8')); }
@@ -54,6 +61,7 @@ export function loadContent(root) {
   return {
     site: json('content/site.json'), home: json('content/home.json'),
     people: json('content/people.json'), news: json('content/news.json'),
+    posts: existsSync(path.join(root,'content/posts.json'))?json('content/posts.json'):[],
     papers: readdirSync(path.join(root,'content/papers')).filter(name => name.endsWith('.json')).sort()
       .map(name => ({...json(`content/papers/${name}`), _file: `content/papers/${name}`}))
   };
@@ -95,6 +103,7 @@ export function validateContent(data, root) {
     catch { fail(at,'use an http(s) URL'+(local?' or an existing assets/ path':'')); }
   };
   const unique = (items, at) => { const seen=new Set(); for(const item of items) { if(seen.has(item.id)) fail(at,`duplicate id: ${item.id}`); seen.add(item.id); } };
+  const order = (value, at) => { if(value!==undefined && (!Number.isSafeInteger(value) || value<0))fail(at,'must be a nonnegative integer, e.g. 0, 10, 20'); };
   const site = data.site || {}, home=data.home || {};
   for (const key of ['title','description','socialDescription','name','brandName','brandSubtitle']) text(site[key],`site.${key}`);
   asset(site.logo,'site.logo'); if (!site.logo?.endsWith('.svg')) fail('site.logo','choose an SVG asset');
@@ -112,6 +121,7 @@ export function validateContent(data, root) {
   const papers=array(data.papers,'papers'); unique(papers,'papers');
   papers.forEach(p=>{
     const at=p._file || `paper ${p.id}`; id(p.id,at+'.id');bool(p.published,at+'.published');date(p.date,at+'.date');plainBi(p.title,at+'.title');plainBi(p.summary,at+'.summary');plainBi(p.status,at+'.status');
+    order(p.order,at+'.order');
     if(p._file && path.basename(p._file)!==p.id+'.json')fail(at,'filename must match id + .json');
     array(p.authors,at+'.authors',p.published!==false).forEach((a,i)=>text(a,`${at}.authors[${i}]`));
     array(p.links,at+'.links',p.published!==false).forEach((l,i)=>{plainBi(l.label,`${at}.links[${i}].label`);url(l.url,`${at}.links[${i}].url`,false,true);});
@@ -129,6 +139,28 @@ export function validateContent(data, root) {
       if(p.cover.captionLines)array(p.cover.captionLines,at+'.cover.captionLines').forEach((s,i)=>text(s,`${at}.cover.captionLines[${i}]`));
     }
     if(p.results){const r=p.results;plainBi(r.summary,at+'.results.summary');plainBi(r.caption,at+'.results.caption');plainBi(r.note,at+'.results.note');const columns=array(r.columns,at+'.results.columns',true);columns.forEach((v,i)=>plainBi(v,`${at}.results.columns[${i}]`));array(r.rows,at+'.results.rows').forEach((row,i)=>{if(array(row,at+'.results.rows['+i+']').length!==columns.length)fail(at+'.results.rows['+i+']','cell count must match columns');});}
+  });
+  const posts=array(data.posts || [],'posts');unique(posts,'posts');unique([...papers,...posts],'research');
+  posts.forEach((p,i)=>{
+    const at=`posts[${i}] (${p.id || '?'})`;
+    id(p.id,at+'.id');bool(p.published,at+'.published');order(p.order,at+'.order');
+    if(p.date!==undefined)date(p.date,at+'.date');
+    plainBi(p.title,at+'.title');plainBi(p.summary,at+'.summary');plainBi(p.status,at+'.status');
+    if(p.linkLabel!==undefined)plainBi(p.linkLabel,at+'.linkLabel');
+    if(p.authors!==undefined)array(p.authors,at+'.authors').forEach((author,j)=>text(author,at+'.authors['+j+']'));
+    if(p.readingMinutes!==undefined && (!Number.isSafeInteger(p.readingMinutes) || p.readingMinutes<1))fail(at+'.readingMinutes','must be a positive integer');
+    try{postSourcePath(root,p.source);}catch(error){fail(at+'.source',error.message);}
+    if(p.chineseSource!==undefined){
+      try{
+        const chinese=postSourcePath(root,p.chineseSource,'zh.html');
+        if(path.dirname(chinese)!==path.dirname(postSourcePath(root,p.source)))throw new Error('Chinese and English sources must share the same folder and assets.');
+      }catch(error){fail(at+'.chineseSource',error.message);}
+    }
+    if(p.series!==undefined && (!Number.isSafeInteger(p.series?.part) || p.series.part<1 || !Number.isSafeInteger(p.series?.total) || p.series.total<p.series.part))fail(at+'.series','use positive integer part and total, with part no greater than total');
+    if(p.cover){
+      if(p.cover.kind!=='image')fail(at+'.cover.kind','use image for a post cover');
+      image(p.cover.image,at+'.cover.image');text(p.cover.alt,at+'.cover.alt');
+    }
   });
   const news=array(data.news,'news');unique(news,'news');news.forEach((n,i)=>{id(n.id,`news[${i}].id`);date(n.date,`news[${i}].date`);plainBi(n.text,`news[${i}].text`);bool(n.visible,`news[${i}].visible`);if(n.url)url(n.url,`news[${i}].url`,false,true);});
   if(errors.length) throw new Error('Content validation failed:\n'+errors.map(e=>'  • '+e).join('\n'));

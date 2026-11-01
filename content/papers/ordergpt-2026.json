@@ -1,6 +1,7 @@
 {
   "id": "ordergpt-2026",
   "published": true,
+  "order": 4,
   "date": "2026-10-19",
   "title": "OrderGPT: Generation Order as a Learnable Modeling Choice",
   "authors": [

@@ -16,6 +16,7 @@ JSON 使用英文双引号，最后一项后面不留逗号。`id` 使用唯一�
 {
   "id": "my-paper",
   "published": false,
+  "order": 10,
   "date": "2026-10-24",
   "title": "Your Paper Title",
   "authors": ["First Author", "Second Author"],
@@ -31,7 +32,22 @@ JSON 使用英文双引号，最后一项后面不留逗号。`id` 使用唯一�
 }
 ```
 
-例子里的地址需要替换成真实链接。发表的论文至少需要一个作者和一个链接；标题使用 `links` 中的第一个地址。论文按日期倒序排列，同日期按 ID 排序。`status` 可填会议或期刊名，例如 `ICLR 2027`。
+例子里的地址需要替换成真实链接。发表的论文至少需要一个作者和一个链接；标题使用 `links` 中的第一个地址。`status` 可填会议或期刊名，例如 `ICLR 2027`。
+
+### 自定义展示顺序
+
+在每篇论文 JSON 中设置可选的 `order` 字段，使用非负整数（`0`、`1`、`2` 等），数字越小越靠前。也可以用 `0`、`10`、`20` 等间隔编号，方便以后插入 `5` 或 `15`。
+
+- 填写了 `order` 的论文优先展示，按数字从小到大排列。
+- 未填写的论文排在后面，按完整日期 `date` 从新到旧排列。
+- `order` 相同或都未填写时，先比较日期；日期也相同则按 `id` 字母顺序排列。
+- `published: false` 的论文始终隐藏。
+
+例如，将想放在最前的论文设置为 `"order": 0`，其余论文依次设置为 `1`、`2` 等，即可固定展示顺序。新增论文的模板不预设 `order`，需要自定义位置时自行填写。
+
+第一篇自动使用突出样式并展开摘要；首页的“最新论文”按钮仍按发布日期选择目标。修改后运行 `npm run build`，或通过 `npm run dev` 自动重建并刷新。将所有论文的 `order` 字段删除即可恢复纯日期排序。
+
+### 论文的可选内容
 
 `bibtex`、`cover`、`results` 都可省略，不会出现空按钮或空表格。每篇 BibTeX 独立展开。
 
@@ -85,6 +101,25 @@ LangDiT 的动图生成源文件是 `scripts/create-langdit-animation.py`。只�
   "note": { "en": "Explain the evaluation settings.", "zh": "注明评测设置、预算与比较条件。" }
 }
 ```
+
+## 研究解读文章
+
+在 `content/posts.json` 中维护文章入口。文章与论文共同出现在“最新研究摘录”，共享 `order` 排序规则，`published: false` 时隐藏。
+
+当前文章是 `cdlm-for-dummies`，配置为 `order: 6`。正文源文件为 `others/CDLM_Post_1_HTML/index.html`，样式、图示脚本和图片保存在同目录的 `assets/` 中。
+
+- `id` 使用唯一的小写 slug，决定成品路径 `posts/<id>/index.html`。
+- `title`、`summary`、`status` 和可选的 `linkLabel` 支持中英文。
+- `authors` 为可选作者数组，例如 `["Brian K. Chen"]`，在主页文章卡片中展示；正文署名在中英文 HTML 的 `article-byline` 中维护。
+- `readingMinutes` 为可选的正整数；未提供发布日期时可以省略 `date`。
+- `source` 必须指向实际存在的 `others/<folder>/index.html`。
+- `chineseSource` 可选，指向同目录的 `zh.html`；两种语言共享同一份素材。主页在中文模式下默认打开中文版，同时提供英文入口。
+- `series` 可选，例如 `{"part": 1, "total": 4}`，表示当前为系列第 1 篇、共 4 篇；未完成的后续文章不创建链接或卡片。
+- `cover` 可配置图片，字段与论文图片封面相同，图片存放在根目录 `assets/` 中。
+
+构建会复制已发布文章的英文与中文 HTML 及配套 `assets/`，并清理已撤下的旧文章。源文章中的 `../../dist/index.html` 返回链接会在成品中转换为 `../../index.html`；`#publications` 等锚点保留。
+
+分发时保留完整 `dist/` 文件夹。开发服务器同时监听 `others/`，修改正文或样式后自动重建。首次更新开发服务器脚本后，需要先 Ctrl+C 再重新启动预览。
 
 ## 人员
 

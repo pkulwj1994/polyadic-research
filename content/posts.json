@@ -1,0 +1,36 @@
+[
+  {
+    "id": "cdlm-for-dummies",
+    "published": true,
+    "order": 6,
+    "title": {
+      "en": "Continuous Diffusion Language Models for Dummies - Part 1",
+      "zh": "连续扩散语言模型入门：概念与常见误区 - Part 1"
+    },
+    "status": {
+      "en": "RESEARCH GUIDE",
+      "zh": "研究解读"
+    },
+    "readingMinutes": 14,
+    "authors": ["Brian K. Chen"],
+    "series": {
+      "part": 1,
+      "total": 4
+    },
+    "summary": {
+      "en": "A beginner’s guide to continuous diffusion language models: continuous generative states, denoising, parallel token updates, and the dependencies that make tokens work together.",
+      "zh": "从连续生成状态与去噪过程出发，理解连续扩散语言模型的定义、架构选择、并行生成与 token 之间的依赖关系，澄清常见概念误区。"
+    },
+    "linkLabel": {
+      "en": "Read in English",
+      "zh": "阅读中文版"
+    },
+    "source": "others/CDLM_Post_1_HTML/index.html",
+    "chineseSource": "others/CDLM_Post_1_HTML/zh.html",
+    "cover": {
+      "kind": "image",
+      "image": "assets/posts/cdlm-guide.svg",
+      "alt": "Continuous token states are refined together, from noise to language."
+    }
+  }
+]

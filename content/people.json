@@ -59,7 +59,23 @@
       "en": "Professor of Computer Science, UCLA. Director of UCLA Trustworth Lab. Fellow of the Institute of Mathematical Statistics.",
       "zh": "UCLA 计算机教授，UCLA Trustworth Lab 主管，国际数理统计学会会士。"
     },
-    "website": "",
+    "website": "https://people.stat.ucla.edu/guangcheng/index.html",
+    "showProfileLink": false,
+    "visible": true
+  },
+  {
+    "id": "gen-li",
+    "name": "Gen Li",
+    "initials": "GL",
+    "role": {
+      "en": "Academic Advisor",
+      "zh": "学术指导"
+    },
+    "bio": {
+      "en": "Assistant Professor in the Department of Statistics at the Chinese University of Hong Kong.",
+      "zh": "香港中文大学统计学系助理教授。"
+    },
+    "website": "https://ligen12.github.io/",
     "showProfileLink": false,
     "visible": true
   },
@@ -211,7 +227,10 @@
     "id": "yulei-sun",
     "name": "Yulei Sun",
     "initials": "YS",
-    "role": null,
+    "role": {
+      "en": "Contributor",
+      "zh": "贡献者"
+    },
     "bio": {
       "en": "Undergraduate, SAGA Lab, The Chinese University of Hong Kong, Shenzhen.",
       "zh": "香港中文大学（深圳）SAGA Lab，本科生。"
@@ -224,7 +243,10 @@
     "id": "jiayi-han",
     "name": "Jiayi Han",
     "initials": "JH",
-    "role": null,
+    "role": {
+      "en": "Contributor",
+      "zh": "贡献者"
+    },
     "bio": {
       "en": "Undergraduate, SAGA Lab, The Chinese University of Hong Kong, Shenzhen.",
       "zh": "香港中文大学（深圳）SAGA Lab，本科生。"

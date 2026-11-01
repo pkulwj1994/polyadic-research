@@ -1,0 +1,210 @@
+.cdlm-diagram {
+  --diagram-ink: #1d1d1f;
+  --diagram-teal: #0066cc;
+  --diagram-gold: #805bc5;
+  --diagram-red: #b13e49;
+  --diagram-border: #e5e5ea;
+  color: var(--diagram-ink);
+  font-family: var(--sans, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif);
+  font-size: 14px;
+  line-height: 1.45;
+  border: 1px solid var(--diagram-border);
+  border-radius: 22px;
+  background: #ffffff;
+  overflow: hidden;
+  text-align: left;
+  margin: 0;
+  box-sizing: border-box;
+}
+.cdlm-diagram *, .cdlm-diagram *::before, .cdlm-diagram *::after { box-sizing: border-box; }
+.cdlm-diagram .diagram-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 17px 21px;
+  border-bottom: 1px solid var(--diagram-border);
+}
+.cdlm-diagram .diagram-eyebrow {
+  color: #6e6e73;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+.cdlm-diagram .diagram-mini-label { font-size: 11px; color: #86868b; }
+.cdlm-diagram .diagram-controls { display: flex; align-items: center; gap: 10px; }
+.cdlm-diagram .diagram-controls[hidden] { display: none; }
+.cdlm-diagram .diagram-controls button {
+  appearance: none;
+  font: inherit;
+  font-size: 11px;
+  font-weight: 650;
+  line-height: 1;
+  cursor: pointer;
+  border: 1px solid #d8e4f5;
+  color: var(--diagram-teal);
+  border-radius: 99px;
+  padding: 9px 13px;
+  min-height: 32px;
+  background: #eef5ff;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+}
+.cdlm-diagram .diagram-controls button:hover { background: #e2edfc; }
+.cdlm-diagram .diagram-controls button:focus-visible { outline: 2px solid var(--diagram-teal); outline-offset: 3px; }
+.cdlm-diagram .diagram-controls .diagram-reset { border-color: transparent; background: transparent; }
+.cdlm-diagram .diagram-controls .diagram-reset:disabled { color: #86868b; opacity: .65; cursor: default; }
+.cdlm-diagram .generation-lane {
+  display: grid;
+  grid-template-columns: 155px minmax(0,1fr);
+  align-items: center;
+  gap: 25px;
+  padding: 23px 22px;
+}
+.cdlm-diagram .generation-lane + .generation-lane { border-top: 1px solid #ececf0; }
+.cdlm-diagram .gen-label h3 {
+  font: inherit;
+  font-size: 13px;
+  font-weight: 650;
+  line-height: 1.5;
+  margin: 0 0 5px;
+  letter-spacing: 0;
+  color: var(--diagram-ink);
+}
+.cdlm-diagram .gen-status { display: block; min-height: 2.6em; color: #6e6e73; font-size: 10px; }
+.cdlm-diagram .gen-sequence { display: grid; grid-template-columns: repeat(6,minmax(0,1fr)); gap: 13px; }
+.cdlm-diagram .gen-position { display: block; min-width: 0; position: relative; }
+.cdlm-diagram .gen-token {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 42px;
+  min-width: 0;
+  border: 1px solid #d5e1ef;
+  border-radius: 10px;
+  background: #edf4ff;
+  color: #3566a2;
+  font: italic 19px/1 Georgia, "Times New Roman", serif;
+  transition: background-color 240ms, border-color 240ms, color 240ms;
+  position: relative;
+}
+.cdlm-diagram .gen-token sub, .cdlm-diagram .gen-origin sub { font-size: .65em; }
+.cdlm-diagram .gen-sequential .gen-position:not(:last-child)::after {
+  content: "→";
+  position: absolute;
+  right: -12px;
+  top: 11px;
+  color: #9999a3;
+  font: 14px/1 Arial,sans-serif;
+}
+.cdlm-diagram .gen-origin { display: block; text-align: center; color: #805bc5; font: italic 14px Georgia,serif; margin-bottom: 8px; }
+.cdlm-diagram .gen-origin::after { content: "↓"; display: block; font: 10px Arial,sans-serif; margin-top: 3px; color: #a2a2ac; }
+.cdlm-diagram .gen-annotation { display: flex; justify-content: space-between; margin-top: 10px; color: #86868b; font-size: 10px; }
+.cdlm-diagram .gen-bracket { border: solid #d5e1ef; border-width: 0 1px 1px; justify-content: center; margin-top: 5px; padding-top: 6px; }
+.cdlm-diagram .gen-bracket span { background: #ffffff; transform: translateY(7px); padding: 0 8px; }
+.cdlm-diagram .gen-blocks { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 16px; }
+.cdlm-diagram .gen-block { position: relative; min-width: 0; padding: 6px; border: 1px solid #dce3ef; background: #f7f9fc; border-radius: 6px; }
+.cdlm-diagram .gen-block:not(:last-child)::after { content:"→"; position:absolute; top: 18px; right: -15px; color: #9999a3; font:14px Arial,sans-serif; }
+.cdlm-diagram .gen-block-tokens { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:5px; }
+.cdlm-diagram .gen-block .gen-token { height: 36px; font-size: 17px; }
+.cdlm-diagram .gen-block-caption { display:block; text-align:center; font-size: 9px; color:#697a96; margin:7px -3px 0; line-height:1.3; }
+.cdlm-diagram .gen-token[data-state="waiting"] { background:#f5f5f7; color:#9999a2; border-color:#dddde3; border-style:dashed; }
+.cdlm-diagram .gen-token[data-state="refining"] {
+  border-color: #c8b8e5;
+  color: #6d4c9a;
+  background: #f1edf9;
+  background-image: repeating-linear-gradient(115deg,transparent 0px,transparent 5px,#bba9dc33 5px,#bba9dc33 7px);
+}
+.cdlm-diagram .gen-token[data-state="refining"]::after {
+  content:"";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  width: calc(var(--refine, .5) * 100%);
+  border-radius: 0 0 3px 3px;
+  background: #9770cf;
+  transition: width 250ms ease;
+}
+.cdlm-diagram .diagram-footnote {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  min-height: 42px;
+  padding: 12px 21px;
+  border-top: 1px solid var(--diagram-border);
+  background: #f5f5f7;
+  color: #6e6e73;
+  font-size: 10px;
+  line-height: 1.5;
+}
+.cdlm-diagram .diagram-step { flex-shrink: 0; font-variant-numeric: tabular-nums; }
+.cdlm-diagram .diagram-sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
+.cdlm-diagram .prob-panels { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:22px; padding:22px; }
+.cdlm-diagram .prob-panel { min-width:0; }
+.cdlm-diagram .prob-matrix { width:100%; border-collapse:separate; border-spacing:4px; table-layout:fixed; border:0; background:transparent; margin:0; font:inherit; }
+.cdlm-diagram .prob-matrix caption { text-align:left; padding:0 0 12px 4px; color:var(--diagram-ink); font-size:13px; font-weight:650; font-family:inherit; }
+.cdlm-diagram .prob-matrix th { padding:7px 2px; font:600 11px/1.3 var(--sans); color:#6e6e73; border:0; background:transparent; text-align:center; }
+.cdlm-diagram .prob-matrix th[scope="row"] { width:20%; text-align:left; }
+.cdlm-diagram .prob-matrix .prob-axis { width:50px; padding:0; background:transparent; border:0; vertical-align:middle; }
+.cdlm-diagram .prob-axis span { display:block; font-size:8px; color:#86868b; white-space:nowrap; }
+.cdlm-diagram .prob-matrix td:not(.prob-axis) { padding:12px 4px; text-align:center; border:1px solid transparent; border-radius:5px; vertical-align:middle; }
+.cdlm-diagram .prob-percent { display:block; font:600 23px/1.2 var(--sans); font-variant-numeric:tabular-nums; }
+.cdlm-diagram .prob-percent small { font-size:12px; margin-left:2px; }
+.cdlm-diagram .prob-pair { display:block; font-size:9px; margin-top:5px; line-height:1.4; white-space:nowrap; }
+.cdlm-diagram .prob-match { color:#3566a2; background:#edf4ff; }
+.cdlm-diagram .prob-mismatch { color:#a54350; background:#fff0f1; }
+.cdlm-diagram .prob-zero { color:#86868b; background:#f5f5f7; }
+.cdlm-diagram .prob-panel-total { display:flex; align-items:center; justify-content:space-between; gap:5px; border-top:1px solid #e5e5ea; margin:12px 4px 0; padding-top:10px; font-size:10px; color:#6e6e73; }
+.cdlm-diagram .prob-panel-total strong { color:#3566a2; font-size:13px; font-weight:650; }
+
+@media (max-width: 650px) {
+  .cdlm-diagram .generation-lane { grid-template-columns:1fr; gap:12px; padding:19px 17px; }
+  .cdlm-diagram .gen-label { display:flex; justify-content:space-between; align-items:center; gap:12px; }
+  .cdlm-diagram .gen-label h3 { font-size:12px; margin:0; }
+  .cdlm-diagram .gen-label h3 br { display:none; }
+  .cdlm-diagram .gen-label h3 br::after { content:" "; }
+  .cdlm-diagram .gen-status { min-height:0; font-size:9px; text-align:right; }
+  .cdlm-diagram .gen-origin { margin-bottom:5px; }
+  .cdlm-diagram .gen-bracket { margin-bottom:6px; }
+  .cdlm-diagram .prob-panels { gap:14px; padding:17px 13px; }
+  .cdlm-diagram .prob-matrix .prob-axis { width:35px; }
+  .cdlm-diagram .prob-percent { font-size:20px; }
+  .cdlm-diagram .prob-pair { font-size:8px; }
+}
+@media (max-width: 480px) {
+  .cdlm-diagram .diagram-toolbar { padding:14px 16px; }
+  .cdlm-diagram .diagram-mini-label { width:100%; font-size:10px; }
+  .cdlm-diagram .diagram-footnote { padding:11px 16px; font-size:9px; }
+  .cdlm-diagram .gen-sequence { gap:11px; }
+  .cdlm-diagram .gen-token { height:38px; font-size:17px; }
+  .cdlm-diagram .gen-blocks { gap:13px; }
+  .cdlm-diagram .gen-block:not(:last-child)::after { right:-12px; font-size:12px; }
+  .cdlm-diagram .gen-block { padding:5px; }
+  .cdlm-diagram .gen-block-caption { font-size:8px; }
+  .cdlm-diagram .gen-block .gen-token { height:34px; font-size:16px; }
+  .cdlm-diagram .prob-panels { grid-template-columns:1fr; gap:24px; padding:19px 18px; }
+  .cdlm-diagram .prob-matrix .prob-axis { width:48px; }
+  .cdlm-diagram .prob-axis span { font-size:9px; }
+  .cdlm-diagram .prob-matrix caption { font-size:13px; }
+  .cdlm-diagram .prob-matrix th { font-size:12px; }
+  .cdlm-diagram .prob-pair { font-size:10px; }
+  .cdlm-diagram .prob-percent { font-size:25px; }
+  .cdlm-diagram .prob-panel-total { font-size:11px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .cdlm-diagram *, .cdlm-diagram *::after { animation:none !important; transition:none !important; }
+}
+@media print {
+  .cdlm-diagram { break-inside:avoid; border-color:#bbb; box-shadow:none; }
+  .cdlm-diagram .diagram-controls, .cdlm-diagram .diagram-step { display:none !important; }
+  .cdlm-diagram .gen-token { background:#f5f5f7 !important; color:#1d1d1f !important; border:1px solid #b8c3d1 !important; }
+  .cdlm-diagram .gen-token::after { display:none !important; }
+  .cdlm-diagram .prob-panels { grid-template-columns:repeat(2,minmax(0,1fr)); }
+}
+
+@media(pointer:coarse) { .cdlm-diagram .diagram-controls button { min-height:44px; } }

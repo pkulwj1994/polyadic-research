@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="840" height="600" viewBox="0 0 840 600" fill="none">
+  <defs>
+    <linearGradient id="paper" x1="100" y1="30" x2="730" y2="570" gradientUnits="userSpaceOnUse"><stop stop-color="#f7f9fd"/><stop offset="1" stop-color="#eef0f9"/></linearGradient>
+    <linearGradient id="blue" x1="250" y1="90" x2="610" y2="220" gradientUnits="userSpaceOnUse"><stop stop-color="#0874d6"/><stop offset="1" stop-color="#805bc5"/></linearGradient>
+    <linearGradient id="stream" x1="420" y1="280" x2="420" y2="464" gradientUnits="userSpaceOnUse"><stop stop-color="#0874d6" stop-opacity=".12"/><stop offset="1" stop-color="#7752bd" stop-opacity=".55"/></linearGradient>
+  </defs>
+  <rect width="840" height="600" rx="28" fill="url(#paper)"/>
+  <g font-family="-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif" text-anchor="middle">
+    <text x="420" y="90" fill="#73737d" font-size="14" font-weight="600" letter-spacing="3">A GUIDE TO</text>
+    <text x="420" y="182" fill="url(#blue)" font-size="90" font-weight="650" letter-spacing="-5">CDLMs.</text>
+    <text x="420" y="226" fill="#6e6e79" font-size="20" letter-spacing="-.4">Continuous states. Shared refinement.</text>
+  </g>
+  <g stroke="url(#stream)" stroke-width="1.6">
+    <path d="M120 286C340 315 128 379 214 455"/><path d="M170 302C90 363 276 377 214 455"/><path d="M221 275C345 330 153 402 214 455"/><path d="M272 310C394 353 162 411 214 455"/><path d="M329 288C192 322 265 393 214 455"/>
+    <path d="M241 296C460 328 314 376 420 455"/><path d="M302 280C221 337 445 381 420 455"/><path d="M357 310C512 347 346 391 420 455"/><path d="M416 280C290 348 498 398 420 455"/><path d="M470 302C617 362 351 388 420 455"/><path d="M527 278C371 315 478 419 420 455"/>
+    <path d="M476 288C713 335 560 377 626 455"/><path d="M530 309C410 359 670 388 626 455"/><path d="M580 279C723 323 558 409 626 455"/><path d="M634 307C511 358 702 398 626 455"/><path d="M685 284C796 351 566 394 626 455"/><path d="M730 302C573 332 690 412 626 455"/>
+  </g>
+  <g fill="#5682ca" fill-opacity=".5"><circle cx="120" cy="286" r="4"/><circle cx="170" cy="302" r="3"/><circle cx="221" cy="275" r="4"/><circle cx="272" cy="310" r="3"/><circle cx="329" cy="288" r="4"/><circle cx="416" cy="280" r="4"/><circle cx="470" cy="302" r="3"/><circle cx="527" cy="278" r="4"/><circle cx="580" cy="279" r="3"/><circle cx="634" cy="307" r="4"/><circle cx="685" cy="284" r="3"/><circle cx="730" cy="302" r="4"/></g>
+  <g font-family="-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif" font-size="20" font-weight="550" text-anchor="middle">
+    <rect x="142" y="440" width="144" height="64" rx="18" fill="white" stroke="#dae4f2"/><text x="214" y="480" fill="#3264a4">Think</text>
+    <rect x="348" y="440" width="144" height="64" rx="18" fill="white" stroke="#dfdff0"/><text x="420" y="480" fill="#6064a9">together.</text>
+    <rect x="554" y="440" width="144" height="64" rx="18" fill="white" stroke="#e4dcf0"/><text x="626" y="480" fill="#7b5ca9">Refine.</text>
+  </g>
+  <text x="420" y="552" fill="#888894" font-family="-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif" font-size="12" letter-spacing="2" text-anchor="middle">POLYADIC RESEARCH GROUP</text>
+</svg>

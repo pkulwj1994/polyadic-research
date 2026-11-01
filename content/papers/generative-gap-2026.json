@@ -1,6 +1,7 @@
 {
   "id": "generative-gap-2026",
   "published": true,
+  "order": 2,
   "date": "2026-10-30",
   "title": "The Generative Gap Between Speculative Drafter and Continuous Diffusion Language Model",
   "authors": [

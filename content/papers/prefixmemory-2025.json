@@ -1,6 +1,7 @@
 {
   "id": "prefixmemory-2025",
   "published": true,
+  "order": 5,
   "date": "2025-06-16",
   "title": "PrefixMemory-Tuning: Modernizing Prefix-Tuning by Decoupling the Prefix from Attention",
   "authors": [
