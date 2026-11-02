@@ -1,6 +1,7 @@
 {
   "id": "convergeflow-2026",
   "published": true,
+  "order": 7,
   "date": "2026-08-24",
   "title": "ConvergeFlow: Language Flow with Provable Convergence to Token Embeddings",
   "authors": [
