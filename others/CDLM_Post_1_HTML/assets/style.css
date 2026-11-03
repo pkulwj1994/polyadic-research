@@ -43,6 +43,9 @@ h1 em { font-style: normal; background: linear-gradient(100deg,#0874d6 8%,#7252c
 .article-byline span { color: var(--ink); font-weight: 500; }
 .article-start { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 44px; padding: 10px 22px; border-radius: 99px; background: #0071e3; color: #fff; font-size: 14px; text-decoration: none; }
 .article-start:hover { background: #0077ed; }
+.article-actions { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 12px; }
+.article-start--secondary { background: var(--surface); color: var(--blue); }
+.article-start--secondary:hover { background: #e8e8ed; }
 .reading-layout { width: min(1120px,calc(100% - 96px)); margin: 0 auto; display: grid; grid-template-columns: 216px minmax(0,760px); gap: 72px; align-items: start; justify-content: center; padding: 64px 0 96px; }
 .contents-rail { position: sticky; top: 98px; max-height: calc(100vh - 126px); overflow-y: auto; background: var(--surface); padding: 23px 18px; border-radius: 22px; scrollbar-width: thin; }
 .contents-details > summary { list-style: none; font-size: 12px; font-weight: 600; color: var(--ink); padding: 0 8px 15px; cursor: pointer; }

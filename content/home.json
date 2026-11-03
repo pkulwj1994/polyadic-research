@@ -155,6 +155,43 @@
       }
     }
   ],
+  "researchCategories": [
+    {
+      "id": "blogs",
+      "title": {
+        "en": "Blogs",
+        "zh": "博客"
+      }
+    },
+    {
+      "id": "continuous-diffusion",
+      "title": {
+        "en": "Continuous Diffusion Language Model",
+        "zh": "连续扩散语言模型"
+      }
+    },
+    {
+      "id": "masked-diffusion",
+      "title": {
+        "en": "Masked Diffusion Language Model",
+        "zh": "掩码扩散语言模型"
+      }
+    },
+    {
+      "id": "traditional-gpt",
+      "title": {
+        "en": "Traditional GPT",
+        "zh": "传统 GPT"
+      }
+    },
+    {
+      "id": "others",
+      "title": {
+        "en": "Others",
+        "zh": "其他研究"
+      }
+    }
+  ],
   "copy": {
     "skipToContent": {
       "en": "Skip to content",

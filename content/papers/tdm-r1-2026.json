@@ -1,0 +1,42 @@
+{
+  "id": "tdm-r1-2026",
+  "category": "others",
+  "published": true,
+  "order": 0,
+  "date": "2026-03-08",
+  "title": "TDM-R1: Reinforcing Few-Step Diffusion Models with Non-Differentiable Reward",
+  "authors": [
+    "Yihong Luo",
+    "Tianyang Hu",
+    "Weijian Luo",
+    "Jing Tang"
+  ],
+  "status": {
+    "en": "PREPRINT",
+    "zh": "预印本"
+  },
+  "summary": {
+    "en": "Adapts few-step image generators to non-differentiable rewards by separating surrogate reward learning from generator optimization. Reward signals along deterministic TDM trajectories support post-training for text rendering, visual quality, and preference alignment.",
+    "zh": "将少步图像生成器的训练拆分为代理奖励学习与生成器优化，使不可微奖励也能用于后训练。方法沿 TDM 的确定性生成轨迹构造逐步奖励信号，并在文字渲染、视觉质量和偏好对齐等任务中评估效果。"
+  },
+  "links": [
+    {
+      "label": {
+        "en": "Read paper",
+        "zh": "阅读论文"
+      },
+      "url": "https://arxiv.org/pdf/2603.07700"
+    },
+    {
+      "label": "PDF",
+      "url": "https://arxiv.org/pdf/2603.07700"
+    }
+  ],
+  "bibtex": "@misc{tdmr12026,\n  title={TDM-R1: Reinforcing Few-Step Diffusion Models with Non-Differentiable Reward},\n  author={Yihong Luo and Tianyang Hu and Weijian Luo and Jing Tang},\n  year={2026},\n  eprint={2603.07700},\n  archivePrefix={arXiv},\n  url={https://arxiv.org/abs/2603.07700}\n}",
+  "cover": {
+    "kind": "image",
+    "image": "assets/papers/tdm-r1-2026-preview.gif",
+    "alt": "Animated conceptual overview of TDM-R1: Black-box reward; Reward surrogate; Generator learning.",
+    "poster": "assets/papers/tdm-r1-2026-poster.png"
+  }
+}

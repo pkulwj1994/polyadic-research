@@ -15,6 +15,31 @@ export function visibleResearch(data) {
     .filter(p=>p.published!==false).toSorted(byPaperOrder);
 }
 
+export function groupedResearch(data) {
+  const research=visibleResearch(data);
+  const groups=(data.home.researchCategories || []).map(category=>({
+    ...category,items:research.filter(item=>item.category===category.id)
+  })).filter(group=>group.items.length);
+  const uncategorized=research.filter(item=>!item.category);
+  if(uncategorized.length)groups.push({items:uncategorized});
+  return groups;
+}
+
+function renderResearch(data,root) {
+  const groups=groupedResearch(data);
+  if(!groups.length)return t('p',{en:'New research will be shared here.',zh:'新的研究成果将在这里发布。'},'class="muted"');
+  const links=groups.filter(group=>group.id).map(group=>t('a',group.title,`class="research-category-link" href="#research-category-${group.id}"`)).join('');
+  const navigation=links?`<nav class="research-categories" aria-labelledby="research-categories-label">${t('span',{en:'Research categories',zh:'研究分类'},'id="research-categories-label" class="research-categories-label"')}${links}</nav>`:'';
+  const sections=groups.map(group=>{
+    const cards=group.items.map((item,i)=>item.type==='post'?renderPost(item,root,{featured:i===0}):renderPaper(item,root,{featured:i===0})).join('\n');
+    const list=`<div class="papers">${cards}</div>`;
+    if(!group.id)return list;
+    const id=`research-category-${group.id}`;
+    return `<section class="research-group" id="${id}" aria-labelledby="${id}-title"><div class="research-group-heading">${t('h3',group.title,`id="${id}-title"`)}</div>${list}</section>`;
+  }).join('\n');
+  return `${navigation}<div class="research-groups">${sections}</div>`;
+}
+
 function dateCopy(value) {
   const date=new Date(value+'T00:00:00Z');
   return {en:date.toLocaleDateString('en-US',{month:'long',year:'numeric',timeZone:'UTC'}).toUpperCase(),zh:`${date.getUTCFullYear()} 年 ${date.getUTCMonth()+1} 月`};
@@ -55,7 +80,7 @@ export function renderPaper(p,root,{featured=false}={}) {
   let results='';
   if(p.results){const r=p.results;results=`<details class="paper-extra">${t('summary',r.summary)}<div class="metrics-scroll"><table class="metrics">${t('caption',r.caption,'class="metric-caption"')}<thead><tr>${r.columns.map(c=>t('th',c,'scope="col"')).join('')}</tr></thead><tbody>${r.rows.map(row=>'<tr>'+row.map(v=>`<td>${esc(v)}</td>`).join('')+'</tr>').join('')}</tbody></table></div>${t('p',r.note,'class="metric-note"')}</details>`;}
   const abstract=`<details class="paper-abstract"${featured?' open':''}>${t('summary',{en:'Abstract',zh:'研究摘要'})}${t('p',p.summary,'class="paper-description"')}</details>`;
-  return `<article class="paper${featured?' paper--featured':''}" id="paper-${p.id}">${cover(p,root)}<div class="paper-content"><div class="paper-meta">${t('time',dateLabel,`datetime="${p.date}"`)}${t('span',p.status,'class="tag"')}</div><h3>${title}</h3><p class="authors">${p.authors.map(esc).join(', ')}</p>${abstract}<div class="paper-actions">${links}${bibButton}</div>${p.bibtex?`<pre class="bib" id="${bibId}" hidden>${esc(p.bibtex)}</pre>`:''}${results}</div></article>`;
+  return `<article class="paper${featured?' paper--featured':''}" id="paper-${p.id}">${cover(p,root)}<div class="paper-content"><div class="paper-meta">${t('time',dateLabel,`datetime="${p.date}"`)}${t('span',p.status,'class="tag"')}</div><h4 class="paper-title">${title}</h4><p class="authors">${p.authors.map(esc).join(', ')}</p>${abstract}<div class="paper-actions">${links}${bibButton}</div>${p.bibtex?`<pre class="bib" id="${bibId}" hidden>${esc(p.bibtex)}</pre>`:''}${results}</div></article>`;
 }
 
 export function renderPost(p,root,{featured=false}={}) {
@@ -68,7 +93,8 @@ export function renderPost(p,root,{featured=false}={}) {
   const authors=p.authors?.length?`<p class="authors">${p.authors.map(esc).join(', ')}</p>`:'';
   const series=p.series?t('span',{en:`Part ${p.series.part} of ${p.series.total}`,zh:`第 ${p.series.part} 篇 / 共 ${p.series.total} 篇`}):'';
   const alternate=p.chineseSource?`<a class="text-link" href="${chineseHref}" data-en-href="${chineseHref}" data-zh-href="${href}">${t('span',{en:'Read in Chinese',zh:'English version'})} ${arrow}</a>`:'';
-  return `<article class="paper post${featured?' paper--featured':''}" id="post-${p.id}">${cover(p,root)}<div class="paper-content"><div class="paper-meta">${t('span',p.status,'class="tag"')}${series}${reading}${date}</div><h3>${t('a',p.title,linkAttrs)}</h3>${authors}${t('p',p.summary,'class="paper-description post-description"')}<div class="paper-actions"><a class="text-link" ${linkAttrs}>${t('span',linkLabel)} ${arrow}</a>${alternate}</div></div></article>`;
+  const links=(p.links || []).map(link=>`<a class="text-link" href="${esc(link.url)}" ${external}>${t('span',link.label)} ${arrow}</a>`).join('');
+  return `<article class="paper post${featured?' paper--featured':''}" id="post-${p.id}">${cover(p,root)}<div class="paper-content"><div class="paper-meta">${t('span',p.status,'class="tag"')}${series}${reading}${date}</div><h4 class="paper-title">${t('a',p.title,linkAttrs)}</h4>${authors}${t('p',p.summary,'class="paper-description post-description"')}<div class="paper-actions"><a class="text-link" ${linkAttrs}>${t('span',linkLabel)} ${arrow}</a>${alternate}${links}</div></div></article>`;
 }
 
 export function renderPage(data,root) {
@@ -79,7 +105,6 @@ export function renderPage(data,root) {
     .replace('<svg ','<svg aria-hidden="true" focusable="false" ')
     .replace(/id="([^"]+)"/g,'id="brand-$1"').replace(/url\(#([^)]+)\)/g,'url(#brand-$1)');
   const papers=visiblePapers(data.papers);
-  const research=visibleResearch(data);
   const latestPaper=papers.toSorted(byDate)[0];
   const slots={
     styles:readFileSync(path.join(root,'src/styles.css'),'utf8'),
@@ -96,7 +121,7 @@ export function renderPage(data,root) {
     openSourceGoals:home.openSourceGoals.map(g=>`<div class="agenda-step">${t('h3',g.title)}${t('p',g.description)}</div>`).join(''),
     joinPaths:home.joinPaths.map(g=>`<article>${t('h3',g.title)}${t('p',g.description)}</article>`).join(''),
     people:renderPeople(data.people,root),
-    papers:research.length?research.map((p,i)=>p.type==='post'?renderPost(p,root,{featured:i===0}):renderPaper(p,root,{featured:i===0})).join('\n'):t('p',{en:'New research will be shared here.',zh:'新的研究成果将在这里发布。'},'class="muted"'),
+    papers:renderResearch(data,root),
     news:data.news.filter(n=>n.visible!==false).toSorted(byDate).map(n=>`<div class="news-line" id="news-${n.id}"><time class="news-date" datetime="${n.date}">${n.date.replaceAll('-','.')}</time><p>${n.url?t('a',n.text,`href="${esc(n.url)}" ${external}`):t('span',n.text)}</p></div>`).join('\n')
   };
   const template=readFileSync(path.join(root,'src/template.html'),'utf8');

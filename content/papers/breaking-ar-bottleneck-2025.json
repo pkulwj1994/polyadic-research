@@ -1,0 +1,40 @@
+{
+  "id": "breaking-ar-bottleneck-2025",
+  "category": "masked-diffusion",
+  "published": true,
+  "order": 10,
+  "date": "2025-12-05",
+  "title": "Breaking AR’s Sampling Bottleneck: Provable Acceleration via Diffusion Language Models",
+  "authors": [
+    "Gen Li",
+    "Changxiao Cai"
+  ],
+  "status": {
+    "en": "NeurIPS 2025",
+    "zh": "NeurIPS 2025"
+  },
+  "summary": {
+    "en": "Develops information-theoretic convergence bounds for masked diffusion sampling. KL error depends on token dependence, sampling iterations, and predictor accuracy; matching upper and lower bounds characterize settings where fewer rounds than the sequence length can suffice.",
+    "zh": "从信息论角度分析掩码扩散语言模型的采样收敛性，将 KL 误差与 token 间依赖、迭代轮数及预测器精度联系起来。论文建立匹配的上下界，刻画生成轮数少于序列长度时仍可获得准确采样的条件。"
+  },
+  "links": [
+    {
+      "label": {
+        "en": "Read paper",
+        "zh": "阅读论文"
+      },
+      "url": "https://proceedings.neurips.cc/paper_files/paper/2025/file/111298628bfb153ee1f84b10fec3a8b9-Paper-Conference.pdf"
+    },
+    {
+      "label": "PDF",
+      "url": "https://proceedings.neurips.cc/paper_files/paper/2025/file/111298628bfb153ee1f84b10fec3a8b9-Paper-Conference.pdf"
+    }
+  ],
+  "bibtex": "@inproceedings{breakingarbottleneck2025,\n  title={Breaking AR’s Sampling Bottleneck: Provable Acceleration via Diffusion Language Models},\n  author={Gen Li and Changxiao Cai},\n  booktitle={Advances in Neural Information Processing Systems},\n  year={2025},\n  url={https://proceedings.neurips.cc/paper_files/paper/2025/hash/111298628bfb153ee1f84b10fec3a8b9-Abstract-Conference.html}\n}",
+  "cover": {
+    "kind": "image",
+    "image": "assets/papers/breaking-ar-bottleneck-2025-preview.gif",
+    "alt": "Animated conceptual overview of Beyond Serial Sampling: Token dependence; KL error guarantees; Parallel sampling.",
+    "poster": "assets/papers/breaking-ar-bottleneck-2025-poster.png"
+  }
+}

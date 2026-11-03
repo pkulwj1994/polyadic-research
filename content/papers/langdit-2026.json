@@ -1,5 +1,6 @@
 {
   "id": "langdit-2026",
+  "category": "continuous-diffusion",
   "published": true,
   "order": 0,
   "date": "2026-10-15",
@@ -25,7 +26,7 @@
         "en": "Read paper",
         "zh": "阅读论文"
       },
-      "url": "https://arxiv.org/abs/2610.22330"
+      "url": "https://arxiv.org/pdf/2610.22330"
     },
     {
       "label": {

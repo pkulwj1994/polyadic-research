@@ -1,0 +1,43 @@
+{
+  "id": "reward-instruct-2025",
+  "category": "others",
+  "published": true,
+  "order": 1,
+  "date": "2025-03-17",
+  "title": "Reward-Instruct: A Reward-Centric Approach to Fast Photo-Realistic Image Generation",
+  "authors": [
+    "Yihong Luo",
+    "Tianyang Hu",
+    "Weijian Luo",
+    "Kenji Kawaguchi",
+    "Jing Tang"
+  ],
+  "status": {
+    "en": "NeurIPS 2025",
+    "zh": "NeurIPS 2025"
+  },
+  "summary": {
+    "en": "Trains reward-enhanced few-step image generators from pretrained diffusion models using regularized reward maximization. Its reward-tilted parameter updates remove the need for a separate diffusion-distillation loss, studying the role of reward design in image quality and preference alignment.",
+    "zh": "以带正则化的奖励最大化为核心，将预训练扩散模型转为少步图像生成器。方法通过奖励倾斜的参数更新进行训练，无需单独的扩散蒸馏损失，并研究奖励设计对视觉质量与偏好对齐的影响。"
+  },
+  "links": [
+    {
+      "label": {
+        "en": "Read paper",
+        "zh": "阅读论文"
+      },
+      "url": "https://proceedings.neurips.cc/paper_files/paper/2025/file/f39cbd56877419229aef90dbe463c182-Paper-Conference.pdf"
+    },
+    {
+      "label": "PDF",
+      "url": "https://proceedings.neurips.cc/paper_files/paper/2025/file/f39cbd56877419229aef90dbe463c182-Paper-Conference.pdf"
+    }
+  ],
+  "bibtex": "@inproceedings{rewardinstruct2025,\n  title={Reward-Instruct: A Reward-Centric Approach to Fast Photo-Realistic Image Generation},\n  author={Yihong Luo and Tianyang Hu and Weijian Luo and Kenji Kawaguchi and Jing Tang},\n  booktitle={Advances in Neural Information Processing Systems},\n  year={2025},\n  url={https://proceedings.neurips.cc/paper_files/paper/2025/hash/f39cbd56877419229aef90dbe463c182-Abstract-Conference.html}\n}",
+  "cover": {
+    "kind": "image",
+    "image": "assets/papers/reward-instruct-2025-preview.gif",
+    "alt": "Animated conceptual overview of Reward-Instruct: Base diffusion model; Reward optimization; Few-step generator.",
+    "poster": "assets/papers/reward-instruct-2025-poster.png"
+  }
+}

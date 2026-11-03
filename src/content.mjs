@@ -116,12 +116,21 @@ export function validateContent(data, root) {
     bi(entry.title,`home.${key}[${i}].title`); bi(entry.description,`home.${key}[${i}].description`);
     if (entry.tagLines) array(entry.tagLines,`home.${key}[${i}].tagLines`).forEach((v,j)=>text(v,`home.${key}[${i}].tagLines[${j}]`));
   });
+  const researchCategories=array(home.researchCategories===undefined?[]:home.researchCategories,'home.researchCategories');
+  unique(researchCategories,'home.researchCategories');
+  researchCategories.forEach((entry,i)=>{id(entry.id,`home.researchCategories[${i}].id`);plainBi(entry.title,`home.researchCategories[${i}].title`);});
+  const categoryIds=new Set(researchCategories.map(entry=>entry.id));
+  const category=(value,at)=>{
+    if(value===undefined)return;
+    if(!categoryIds.has(value))fail(at,'choose a category id from home.researchCategories');
+  };
   const people=array(data.people,'people'); unique(people,'people');
   people.forEach((p,i)=>{const at=`people[${i}] (${p.id || '?'})`;id(p.id,at+'.id');text(p.name,at+'.name');text(p.initials,at+'.initials',true);if(p.role)plainBi(p.role,at+'.role');plainBi(p.bio,at+'.bio');url(p.website,at+'.website',true);bool(p.visible,at+'.visible');bool(p.showProfileLink,at+'.showProfileLink');if(p.photo)asset(p.photo,at+'.photo');});
   const papers=array(data.papers,'papers'); unique(papers,'papers');
   papers.forEach(p=>{
     const at=p._file || `paper ${p.id}`; id(p.id,at+'.id');bool(p.published,at+'.published');date(p.date,at+'.date');plainBi(p.title,at+'.title');plainBi(p.summary,at+'.summary');plainBi(p.status,at+'.status');
     order(p.order,at+'.order');
+    category(p.category,at+'.category');
     if(p._file && path.basename(p._file)!==p.id+'.json')fail(at,'filename must match id + .json');
     array(p.authors,at+'.authors',p.published!==false).forEach((a,i)=>text(a,`${at}.authors[${i}]`));
     array(p.links,at+'.links',p.published!==false).forEach((l,i)=>{plainBi(l.label,`${at}.links[${i}].label`);url(l.url,`${at}.links[${i}].url`,false,true);});
@@ -144,9 +153,11 @@ export function validateContent(data, root) {
   posts.forEach((p,i)=>{
     const at=`posts[${i}] (${p.id || '?'})`;
     id(p.id,at+'.id');bool(p.published,at+'.published');order(p.order,at+'.order');
+    category(p.category,at+'.category');
     if(p.date!==undefined)date(p.date,at+'.date');
     plainBi(p.title,at+'.title');plainBi(p.summary,at+'.summary');plainBi(p.status,at+'.status');
     if(p.linkLabel!==undefined)plainBi(p.linkLabel,at+'.linkLabel');
+    if(p.links!==undefined)array(p.links,at+'.links').forEach((link,j)=>{plainBi(link.label,at+'.links['+j+'].label');url(link.url,at+'.links['+j+'].url');});
     if(p.authors!==undefined)array(p.authors,at+'.authors').forEach((author,j)=>text(author,at+'.authors['+j+']'));
     if(p.readingMinutes!==undefined && (!Number.isSafeInteger(p.readingMinutes) || p.readingMinutes<1))fail(at+'.readingMinutes','must be a positive integer');
     try{postSourcePath(root,p.source);}catch(error){fail(at+'.source',error.message);}

@@ -1,13 +1,13 @@
 # Polyadic Research Group
 
-可维护的双语学术主页项目。现采用 Apple 官网风格的白灰配色、系统无衬线字体、居中大标题、轻透吸顶导航和圆角研究卡片。包含 6 篇论文、1 篇研究解读、16 位成员、交互式并行生成示意和原定稿 Logo；论文、文章入口、人员与文案由独立 JSON 文件管理。
+可维护的双语学术主页项目。现采用 Apple 官网风格的白灰配色、系统无衬线字体、居中大标题、轻透吸顶导航和圆角研究卡片。包含 14 篇论文、1 篇研究解读、16 位成员、交互式并行生成示意和原定稿 Logo；论文、文章入口、人员与文案由独立 JSON 文件管理。
 
 **快速预览：解压后直接打开 `dist/index.html`。** 主页已内嵌全部样式、脚本和论文封面；研究解读正文位于 `dist/posts/`，本地 PDF 位于 `dist/assets/papers/`，请保留整个 `dist/` 文件夹。
 
 ## 本次视觉更新
 
 - 首页先展示研究主张与共同迭代动画，再依次进入研究主题、研究成果、团队成员、开源代码和加入与支持。
-- 论文支持 `order` 自定义排序与日期排序，每篇独占一行；桌面端左图右文，窄屏上下排列，摘要、结果表和 BibTeX 可独立展开。
+- 研究摘录依次分为 Blogs、Continuous Diffusion Language Model、Masked Diffusion Language Model、Traditional GPT 和 Others，提供分类跳转入口；组内支持 `order` 自定义排序与日期排序。论文每篇独占一行，摘要、结果表和 BibTeX 可独立展开。
 - 论文示意图默认使用 GIF，进入可见区域时自动播放；静态海报仅用于暂停、离屏或系统减少动态效果设置。手动暂停会保留。
 - 完整保留原有论文内容、成员顺序、外链、中英文切换及 GitHub Pages 工作流。
 - 未添加第三方运行时依赖、外部字体、分析脚本或后端。
@@ -30,7 +30,8 @@ npm run dev
 | 内容 | 文件 |
 | --- | --- |
 | 新增、修改论文 | `content/papers/*.json`，一篇一个文件 |
-| 研究解读入口与顺序 | `content/posts.json` |
+| 研究分类名称与顺序 | `content/home.json` 的 `researchCategories` |
+| 研究解读入口、分类与组内顺序 | `content/posts.json` |
 | 研究解读正文、样式与交互 | `others/CDLM_Post_1_HTML/index.html` 和同目录 `assets/` |
 | 研究解读中文版 | `others/CDLM_Post_1_HTML/zh.html`，与英文版共享素材 |
 | 人员、顺序、职务、简介、主页、头像 | `content/people.json` |
@@ -50,7 +51,7 @@ npm run add:paper -- my-new-paper
 npm run add:person -- first-last
 ```
 
-第一条创建 `content/papers/my-new-paper.json`，填好后设置 `published: true`。论文可配置 `order` 非负整数，数字越小越靠前；未填写的排在后面，按日期从新到旧排列。例如设置为 `0`、`1`、`2` 等，直接改数字即可调整顺序。可配置 PDF / Code / Demo 链接、BibTeX、封面和结果表格。封面支持 GIF / 动态 WebP；提供静态 `poster` 后可播放／暂停，并适配系统“减少动态效果”设置。
+第一条创建 `content/papers/my-new-paper.json`，填好后设置 `published: true`。论文可配置 `order` 非负整数，在所属分类中数字越小越靠前；未填写的排在组内后面，按日期从新到旧排列。例如设置为 `0`、`1`、`2` 等，直接改数字即可调整顺序。可配置 PDF / Code / Demo 链接、BibTeX、封面和结果表格。封面支持 GIF / 动态 WebP；提供静态 `poster` 后可播放／暂停，并适配系统“减少动态效果”设置。
 
 第二条在 `content/people.json` 追加一条记录，填好后设置 `visible: true`。人员按数组顺序展示，移动对象即可排序。`role: null` 不显示职务；`visible: false` 暂时隐藏。
 

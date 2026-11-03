@@ -1,0 +1,40 @@
+{
+  "id": "confidence-decoding-2026",
+  "category": "masked-diffusion",
+  "published": true,
+  "order": 11,
+  "date": "2026-03-23",
+  "title": "Confidence-Based Decoding is Provably Efficient for Diffusion Language Models",
+  "authors": [
+    "Changxiao Cai",
+    "Gen Li"
+  ],
+  "status": {
+    "en": "PREPRINT",
+    "zh": "预印本"
+  },
+  "summary": {
+    "en": "Analyzes an adaptive decoding strategy that limits cumulative prediction entropy within each iteration. KL-accuracy guarantees connect the expected number of sampling rounds to target-distribution entropy, explaining how confidence can guide efficient parallel token generation under the paper’s assumptions.",
+    "zh": "分析一种按每轮累计预测熵决定揭示 token 数量的自适应解码策略。论文将 KL 采样精度、预期生成轮数与目标分布熵联系起来，为置信度引导的并行生成提供理论依据。"
+  },
+  "links": [
+    {
+      "label": {
+        "en": "Read paper",
+        "zh": "阅读论文"
+      },
+      "url": "https://arxiv.org/pdf/2603.22248"
+    },
+    {
+      "label": "PDF",
+      "url": "https://arxiv.org/pdf/2603.22248"
+    }
+  ],
+  "bibtex": "@misc{confidencedecoding2026,\n  title={Confidence-Based Decoding is Provably Efficient for Diffusion Language Models},\n  author={Changxiao Cai and Gen Li},\n  year={2026},\n  eprint={2603.22248},\n  archivePrefix={arXiv},\n  url={https://arxiv.org/abs/2603.22248}\n}",
+  "cover": {
+    "kind": "image",
+    "image": "assets/papers/confidence-decoding-2026-preview.gif",
+    "alt": "Animated conceptual overview of Confidence-Based Decoding: Prediction entropy; Adaptive selection; Parallel unmasking.",
+    "poster": "assets/papers/confidence-decoding-2026-poster.png"
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "id": "attention-sink-2026",
+  "category": "traditional-gpt",
+  "published": true,
+  "order": 11,
+  "date": "2026-05-07",
+  "title": "The Structural Origin of Attention Sink: Variance Discrepancy, Super Neurons, and Dimension Disparity",
+  "authors": [
+    "Siquan Li",
+    "Kaiqi Jiang",
+    "Jiacheng Sun",
+    "Tianyang Hu"
+  ],
+  "status": {
+    "en": "ICML 2026",
+    "zh": "ICML 2026"
+  },
+  "summary": {
+    "en": "Traces attention sinks to variance differences created by value aggregation and amplified by FFN super neurons. Controlled interventions test the proposed causal chain; head-wise RMSNorm is studied as a way to stabilize aggregation statistics during pretraining.",
+    "zh": "将 attention sink 的形成追溯到 value 聚合引入的位置间方差差异，以及 FFN 超级神经元对差异的放大。论文通过可控干预检验这一因果链，并研究以 head-wise RMSNorm 稳定预训练中的聚合统计量。"
+  },
+  "links": [
+    {
+      "label": {
+        "en": "Read paper",
+        "zh": "阅读论文"
+      },
+      "url": "https://arxiv.org/pdf/2605.06611"
+    },
+    {
+      "label": "PDF",
+      "url": "https://arxiv.org/pdf/2605.06611"
+    }
+  ],
+  "bibtex": "@misc{attentionsink2026,\n  title={The Structural Origin of Attention Sink: Variance Discrepancy, Super Neurons, and Dimension Disparity},\n  author={Siquan Li and Kaiqi Jiang and Jiacheng Sun and Tianyang Hu},\n  year={2026},\n  eprint={2605.06611},\n  archivePrefix={arXiv},\n  url={https://arxiv.org/abs/2605.06611}\n}",
+  "cover": {
+    "kind": "image",
+    "image": "assets/papers/attention-sink-2026-preview.gif",
+    "alt": "Animated conceptual overview of Attention Sink: Value aggregation; Variance discrepancy; Attention sink.",
+    "poster": "assets/papers/attention-sink-2026-poster.png"
+  }
+}

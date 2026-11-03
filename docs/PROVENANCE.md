@@ -19,3 +19,19 @@
 ## Animated paper cover
 
 The LangDiT GIF and still poster in `assets/papers/` are original editorial artwork based on the existing homepage schematic. They visualize continuous states, transformer computation and joint token predictions; they are not experimental outputs, measured timings or a complete implementation diagram. `scripts/create-langdit-animation.py` generates both assets.
+
+## Additional papers — November 3, 2026
+
+The seven additional papers and their categories follow the project initiator's supplied list. Existing entries retain their relative order; new entries are appended in the requested order within each category. Others follows Traditional GPT. Titles, authors, venue labels and concise bilingual summaries were checked against the following primary sources:
+
+| Entry | Primary source | Date used in the card |
+| --- | --- | --- |
+| TDM-R1 | [arXiv record](https://arxiv.org/abs/2603.07700) | Initial arXiv submission, 2026-03-08 |
+| Reward-Instruct | [NeurIPS 2025 proceedings](https://proceedings.neurips.cc/paper_files/paper/2025/hash/f39cbd56877419229aef90dbe463c182-Abstract-Conference.html), [arXiv record](https://arxiv.org/abs/2503.13070) | Initial arXiv submission, 2025-03-17 |
+| Diff-Instruct | [NeurIPS 2023 proceedings](https://proceedings.neurips.cc/paper_files/paper/2023/hash/f115f619b62833aadc5acb058975b0e6-Abstract-Conference.html), [arXiv record](https://arxiv.org/abs/2305.18455) | Initial arXiv submission, 2023-05-29 |
+| Any-Order GPT | [arXiv record](https://arxiv.org/abs/2506.19935) | Initial arXiv submission, 2025-06-24; ICML 2026 Oral status follows the authors' arXiv comment |
+| The Structural Origin of Attention Sink | [arXiv record](https://arxiv.org/abs/2605.06611) | Initial arXiv submission, 2026-05-07; ICML 2026 status follows the authors' arXiv comment |
+| Breaking AR’s Sampling Bottleneck | [NeurIPS 2025 proceedings](https://proceedings.neurips.cc/paper_files/paper/2025/hash/111298628bfb153ee1f84b10fec3a8b9-Abstract-Conference.html), [official poster schedule](https://neurips.cc/virtual/2025/poster/115552) | Official NeurIPS poster presentation date, 2025-12-05; not an asserted arXiv submission date |
+| Confidence-Based Decoding | [arXiv record](https://arxiv.org/abs/2603.22248) | Initial arXiv submission, 2026-03-23 |
+
+Each card retains the PDF URL supplied by the project initiator and includes an editable BibTeX citation. The seven additional paper covers are original looping GIF animations with matching PNG posters in `assets/papers/`. Following the project initiator's visual correction, they match the existing covers' blue-gray background, navy serif titles, monospaced labels, flat blue modules and moving arrow markers. Each 800 × 640 GIF uses 60 frames, a shared 128-color palette, and a roughly six-second loop; the matching posters are 1600 × 1280. `scripts/create-additional-paper-animations.m` draws the artwork, encodes changed frame regions, and checks every decoded frame against the rendered pixels using ImageIO. They paraphrase conceptual workflows; they do not reproduce paper figures, sample outputs or benchmark measurements. The earlier static SVG drafts were removed. The existing paper cards, article translations and animations are retained.

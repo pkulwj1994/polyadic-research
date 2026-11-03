@@ -1,5 +1,6 @@
 {
   "id": "ordergpt-2026",
+  "category": "masked-diffusion",
   "published": true,
   "order": 4,
   "date": "2026-10-19",
@@ -23,7 +24,7 @@
         "en": "Read paper",
         "zh": "阅读论文"
       },
-      "url": "https://arxiv.org/abs/2610.25949"
+      "url": "https://arxiv.org/pdf/2610.25949"
     },
     {
       "label": {

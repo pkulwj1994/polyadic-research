@@ -1,0 +1,46 @@
+{
+  "id": "any-order-gpt-2025",
+  "category": "traditional-gpt",
+  "published": true,
+  "order": 10,
+  "date": "2025-06-24",
+  "title": "Any-Order GPT as Masked Diffusion Model: Decoupling Formulation and Architecture",
+  "authors": [
+    "Shuchen Xue",
+    "Tianyu Xie",
+    "Tianyang Hu",
+    "Zijin Feng",
+    "Jiacheng Sun",
+    "Kenji Kawaguchi",
+    "Zhenguo Li",
+    "Zhi-Ming Ma"
+  ],
+  "status": {
+    "en": "ICML 2026 · Oral",
+    "zh": "ICML 2026 · Oral"
+  },
+  "summary": {
+    "en": "Studies masked diffusion and standard autoregressive modeling in a decoder-only architectural framework, separating generation-order choices from network design. Experiments investigate parallel decoding, temperature annealing, and the resulting quality–compute tradeoffs.",
+    "zh": "在 decoder-only 架构下比较掩码扩散与标准自回归建模，将生成顺序的选择与网络架构的影响分开研究。论文进一步考察并行解码、温度退火及其生成质量与计算开销之间的权衡。"
+  },
+  "links": [
+    {
+      "label": {
+        "en": "Read paper",
+        "zh": "阅读论文"
+      },
+      "url": "https://arxiv.org/pdf/2506.19935"
+    },
+    {
+      "label": "PDF",
+      "url": "https://arxiv.org/pdf/2506.19935"
+    }
+  ],
+  "bibtex": "@misc{anyordergpt2025,\n  title={Any-Order GPT as Masked Diffusion Model: Decoupling Formulation and Architecture},\n  author={Shuchen Xue and Tianyu Xie and Tianyang Hu and Zijin Feng and Jiacheng Sun and Kenji Kawaguchi and Zhenguo Li and Zhi-Ming Ma},\n  year={2025},\n  eprint={2506.19935},\n  archivePrefix={arXiv},\n  url={https://arxiv.org/abs/2506.19935}\n}",
+  "cover": {
+    "kind": "image",
+    "image": "assets/papers/any-order-gpt-2025-preview.gif",
+    "alt": "Animated conceptual overview of Any-Order GPT: Any-order modeling; Decoder-only backbone; Parallel decoding.",
+    "poster": "assets/papers/any-order-gpt-2025-poster.png"
+  }
+}

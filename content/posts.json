@@ -1,6 +1,7 @@
 [
   {
     "id": "cdlm-for-dummies",
+    "category": "blogs",
     "published": true,
     "order": 6,
     "title": {
@@ -25,6 +26,12 @@
       "en": "Read in English",
       "zh": "阅读中文版"
     },
+    "links": [
+      {
+        "label": { "en": "Code", "zh": "代码" },
+        "url": "https://colab.research.google.com/drive/1UsYKlJHF4HfaOkIDHxDguABlnBS7ZlVq?usp=sharing"
+      }
+    ],
     "source": "others/CDLM_Post_1_HTML/index.html",
     "chineseSource": "others/CDLM_Post_1_HTML/zh.html",
     "cover": {

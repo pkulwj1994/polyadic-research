@@ -15,6 +15,7 @@ JSON 使用英文双引号，最后一项后面不留逗号。`id` 使用唯一�
 ```json
 {
   "id": "my-paper",
+  "category": "continuous-diffusion",
   "published": false,
   "order": 10,
   "date": "2026-10-24",
@@ -34,9 +35,23 @@ JSON 使用英文双引号，最后一项后面不留逗号。`id` 使用唯一�
 
 例子里的地址需要替换成真实链接。发表的论文至少需要一个作者和一个链接；标题使用 `links` 中的第一个地址。`status` 可填会议或期刊名，例如 `ICLR 2027`。
 
+### 研究分类
+
+首页研究摘录按 `content/home.json` 中 `researchCategories` 的数组顺序展示，分类标题支持中英文。每篇论文与每条文章记录通过 `category` 指定分类：
+
+| `category` | 分类 |
+| --- | --- |
+| `blogs` | Blogs / 博客 |
+| `continuous-diffusion` | Continuous Diffusion Language Model / 连续扩散语言模型 |
+| `masked-diffusion` | Masked Diffusion Language Model / 掩码扩散语言模型 |
+| `traditional-gpt` | Traditional GPT / 传统 GPT |
+| `others` | Others / 其他研究 |
+
+当前分类顺序为博客、连续扩散、掩码扩散、传统 GPT、其他研究。新增分类时在 `researchCategories` 中增加唯一的 `id` 与双语 `title`。没有已发布条目的分类自动隐藏；未设置 `category` 的旧记录仍显示在分类列表之后。填写了不存在的分类 ID 时，内容检查会报错。
+
 ### 自定义展示顺序
 
-在每篇论文 JSON 中设置可选的 `order` 字段，使用非负整数（`0`、`1`、`2` 等），数字越小越靠前。也可以用 `0`、`10`、`20` 等间隔编号，方便以后插入 `5` 或 `15`。
+在每篇论文 JSON 中设置可选的 `order` 字段，使用非负整数（`0`、`1`、`2` 等），在所属分类中数字越小越靠前。也可以用 `0`、`10`、`20` 等间隔编号，方便以后插入 `5` 或 `15`。
 
 - 填写了 `order` 的论文优先展示，按数字从小到大排列。
 - 未填写的论文排在后面，按完整日期 `date` 从新到旧排列。
@@ -45,7 +60,7 @@ JSON 使用英文双引号，最后一项后面不留逗号。`id` 使用唯一�
 
 例如，将想放在最前的论文设置为 `"order": 0`，其余论文依次设置为 `1`、`2` 等，即可固定展示顺序。新增论文的模板不预设 `order`，需要自定义位置时自行填写。
 
-第一篇自动使用突出样式并展开摘要；首页的“最新论文”按钮仍按发布日期选择目标。修改后运行 `npm run build`，或通过 `npm run dev` 自动重建并刷新。将所有论文的 `order` 字段删除即可恢复纯日期排序。
+每个分类的第一条使用突出样式，论文默认展开摘要；首页的“最新论文”按钮仍按发布日期选择目标。修改后运行 `npm run build`，或通过 `npm run dev` 自动重建并刷新。将所有论文的 `order` 字段删除即可恢复各分类内的纯日期排序。
 
 ### 论文的可选内容
 
@@ -84,6 +99,17 @@ JSON 使用英文双引号，最后一项后面不留逗号。`id` 使用唯一�
 
 LangDiT 的动图生成源文件是 `scripts/create-langdit-animation.py`。只有重新绘制该示意动画时才需要 Python、Pillow 和 DejaVu 字体；正常开发和 GitHub Pages 构建直接使用已附带的图片，不增加 npm 依赖。
 
+新增的 TDM-R1、Reward-Instruct、Diff-Instruct、Any-Order GPT、Attention Sink、Breaking AR 与 Confidence-Based Decoding 封面沿用旧动图的浅蓝灰底、深蓝衬线标题、等宽标签和蓝色模块流程。每张 GIF 为 800 × 640、60 帧循环，配有 1600 × 1280 PNG 暂停图；正常网站构建直接使用这些素材。
+
+它们的绘制与 GIF 编码源文件为 `scripts/create-additional-paper-animations.m`，可在装有 Command Line Tools 的 macOS 上重新生成：
+
+```bash
+clang -O2 -fobjc-arc -fno-modules -framework AppKit -framework ImageIO scripts/create-additional-paper-animations.m -o /tmp/polyadic-paper-animations
+/tmp/polyadic-paper-animations .
+```
+
+生成器逐帧解码核对像素，并使用固定调色板与变化区域编码控制闪烁和文件大小。每张卡片通过 `cover.image` 指向 GIF、`cover.poster` 指向 PNG，继续使用相同的自动播放、暂停和减少动态效果逻辑。
+
 `kind: "text"` 保留文字封面，`kind: "architecture"` 仍支持原来的静态结构示意图。
 
 如需本地 PDF，把文件放到 `assets/papers/`，链接 `url` 写 `assets/papers/my-paper.pdf`。相对路径适用于 GitHub Pages 项目子目录；分发 HTML 时也应带上该 PDF。
@@ -104,13 +130,15 @@ LangDiT 的动图生成源文件是 `scripts/create-langdit-animation.py`。只�
 
 ## 研究解读文章
 
-在 `content/posts.json` 中维护文章入口。文章与论文共同出现在“最新研究摘录”，共享 `order` 排序规则，`published: false` 时隐藏。
+在 `content/posts.json` 中维护文章入口。文章出现在“最新研究摘录”的 Blogs 分类，组内沿用 `order` 排序规则，`published: false` 时隐藏。
 
-当前文章是 `cdlm-for-dummies`，配置为 `order: 6`。正文源文件为 `others/CDLM_Post_1_HTML/index.html`，样式、图示脚本和图片保存在同目录的 `assets/` 中。
+当前文章是 `cdlm-for-dummies`，配置为 `category: "blogs"`、`order: 6`。正文源文件为 `others/CDLM_Post_1_HTML/index.html`，样式、图示脚本和图片保存在同目录的 `assets/` 中。
 
 - `id` 使用唯一的小写 slug，决定成品路径 `posts/<id>/index.html`。
 - `title`、`summary`、`status` 和可选的 `linkLabel` 支持中英文。
+- `links` 可选，使用 `{ "label": { "en": "Code", "zh": "代码" }, "url": "https://..." }` 数组添加代码等外部资源入口。当前 Part 1 的 Colab 链接也显示在中英文正文页头的按钮中；更换地址时同步更新两份 HTML。
 - `authors` 为可选作者数组，例如 `["Brian K. Chen"]`，在主页文章卡片中展示；正文署名在中英文 HTML 的 `article-byline` 中维护。
+- `category` 指定所属研究分类；当前文章使用 `blogs`。
 - `readingMinutes` 为可选的正整数；未提供发布日期时可以省略 `date`。
 - `source` 必须指向实际存在的 `others/<folder>/index.html`。
 - `chineseSource` 可选，指向同目录的 `zh.html`；两种语言共享同一份素材。主页在中文模式下默认打开中文版，同时提供英文入口。
@@ -166,6 +194,7 @@ LangDiT 的动图生成源文件是 `scripts/create-langdit-animation.py`。只�
 | --- | --- |
 | `heroBullets` | 首页介绍列表；`showContacts: true` 在该条末尾显示联系按钮 |
 | `topics` | 研究主题，可增删 |
+| `researchCategories` | 研究分类的名称与展示顺序 |
 | `openSourceGoals` | 开源模型库目标，可增删 |
 | `joinPaths` | 合作、贡献、加入和支持说明 |
 | `copy` | 导航文字、各部分标题、简介及其他固定文案 |

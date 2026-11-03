@@ -1,5 +1,6 @@
 {
   "id": "prefixmemory-2025",
+  "category": "traditional-gpt",
   "published": true,
   "order": 5,
   "date": "2025-06-16",
@@ -27,7 +28,7 @@
         "en": "Read paper",
         "zh": "阅读论文"
       },
-      "url": "https://arxiv.org/abs/2506.13674"
+      "url": "https://arxiv.org/pdf/2506.13674"
     },
     {
       "label": {

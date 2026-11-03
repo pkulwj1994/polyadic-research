@@ -90,6 +90,41 @@ test('post sources must be existing HTML packages inside others and use valid or
   }
 });
 
+test('research renders the requested category and item order, with empty categories hidden',()=>{
+  const data=loadContent(projectRoot);
+  data.papers.reverse();
+  const html=renderPage(validateContent(data,projectRoot),projectRoot);
+  const groups=[...html.matchAll(/<section class="research-group" id="research-category-([^"]+)"[^>]*>([\s\S]*?)<\/section>/g)];
+  assert.deepEqual(groups.map(match=>[match[1],[...match[2].matchAll(/id="(?:paper|post)-([^"]+)"/g)].map(item=>item[1])]),[
+    ['blogs',['cdlm-for-dummies']],
+    ['continuous-diffusion',['langdit-2026','nipsd-2026','generative-gap-2026','convergeflow-2026']],
+    ['masked-diffusion',['didi-instruct-2025','ordergpt-2026','breaking-ar-bottleneck-2025','confidence-decoding-2026']],
+    ['traditional-gpt',['prefixmemory-2025','any-order-gpt-2025','attention-sink-2026']],
+    ['others',['tdm-r1-2026','reward-instruct-2025','diff-instruct-2023']]
+  ]);
+  assert.equal((html.match(/<h4 class="paper-title">/g) || []).length,15);
+  assert.ok(html.includes('data-en="Continuous Diffusion Language Model" data-zh="连续扩散语言模型"'));
+  for(const match of groups)assert.ok(html.includes('href="#research-category-'+match[1]+'"'));
+  data.posts[0].published=false;
+  for(const paper of data.papers)if(paper.category==='continuous-diffusion')paper.published=false;
+  const reduced=renderPage(validateContent(data,projectRoot),projectRoot);
+  assert.ok(!reduced.includes('href="#research-category-blogs"'));
+  assert.ok(!reduced.includes('id="research-category-blogs"'));
+  assert.ok(!reduced.includes('href="#research-category-continuous-diffusion"'));
+  assert.ok(!reduced.includes('id="paper-convergeflow-2026"'));
+  assert.ok(reduced.includes('id="research-category-masked-diffusion"'));
+  assert.ok(reduced.includes('id="research-category-traditional-gpt"'));
+});
+
+test('research categories reject unknown assignments and duplicate category IDs',()=>{
+  const paperCategory=base();paperCategory.papers[0].category='unknown-category';
+  assert.throws(()=>validateContent(paperCategory,projectRoot),/\.category: choose a category id/);
+  const postCategory=base();postCategory.posts=[{...loadContent(projectRoot).posts[0],category:'unknown-category'}];
+  assert.throws(()=>validateContent(postCategory,projectRoot),/\.category: choose a category id/);
+  const duplicate=base();duplicate.home.researchCategories.push({...duplicate.home.researchCategories[0]});
+  assert.throws(()=>validateContent(duplicate,projectRoot),/home\.researchCategories: duplicate id/);
+});
+
 test('Chinese article retains all scientific notation, content blocks, and section anchors',()=>{
   const post=loadContent(projectRoot).posts[0];
   const english=readFileSync(path.join(projectRoot,post.source),'utf8');

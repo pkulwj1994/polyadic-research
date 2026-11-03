@@ -1,0 +1,44 @@
+{
+  "id": "diff-instruct-2023",
+  "category": "others",
+  "published": true,
+  "order": 2,
+  "date": "2023-05-29",
+  "title": "Diff-Instruct: A Universal Approach for Transferring Knowledge From Pre-trained Diffusion Models",
+  "authors": [
+    "Weijian Luo",
+    "Tianyang Hu",
+    "Shifeng Zhang",
+    "Jiacheng Sun",
+    "Zhenguo Li",
+    "Zhihua Zhang"
+  ],
+  "status": {
+    "en": "NeurIPS 2023",
+    "zh": "NeurIPS 2023"
+  },
+  "summary": {
+    "en": "Transfers knowledge from pretrained diffusion models to differentiable generators without training data. Integral KL divergence compares distributions along a diffusion process, providing a shared framework for one-step diffusion distillation and the refinement of existing GAN generators.",
+    "zh": "在无需原始训练数据的条件下，将预训练扩散模型的知识迁移到可微生成器。方法沿扩散过程积分 KL 散度，以统一的分布匹配框架支持单步生成器蒸馏，以及对已有 GAN 生成器的改进。"
+  },
+  "links": [
+    {
+      "label": {
+        "en": "Read paper",
+        "zh": "阅读论文"
+      },
+      "url": "https://proceedings.neurips.cc/paper_files/paper/2023/file/f115f619b62833aadc5acb058975b0e6-Paper-Conference.pdf"
+    },
+    {
+      "label": "PDF",
+      "url": "https://proceedings.neurips.cc/paper_files/paper/2023/file/f115f619b62833aadc5acb058975b0e6-Paper-Conference.pdf"
+    }
+  ],
+  "bibtex": "@inproceedings{diffinstruct2023,\n  title={Diff-Instruct: A Universal Approach for Transferring Knowledge From Pre-trained Diffusion Models},\n  author={Weijian Luo and Tianyang Hu and Shifeng Zhang and Jiacheng Sun and Zhenguo Li and Zhihua Zhang},\n  booktitle={Advances in Neural Information Processing Systems},\n  year={2023},\n  url={https://proceedings.neurips.cc/paper_files/paper/2023/hash/f115f619b62833aadc5acb058975b0e6-Abstract-Conference.html}\n}",
+  "cover": {
+    "kind": "image",
+    "image": "assets/papers/diff-instruct-2023-preview.gif",
+    "alt": "Animated conceptual overview of Diff-Instruct: Pretrained diffusion; Integral KL matching; Differentiable generator.",
+    "poster": "assets/papers/diff-instruct-2023-poster.png"
+  }
+}
